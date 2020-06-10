@@ -90,3 +90,4 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/Lab100/100_11.png " ")
 
+### STEP 2: Access your SDDC
