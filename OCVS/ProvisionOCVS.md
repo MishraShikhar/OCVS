@@ -1,6 +1,6 @@
 ## Introduction
 
-This lab will get you started with the Oracle Cloud VMware Service. In this lab, you will provision a Oracle Cloud VMware Stack along with the OCI components needed to host the solution.
+This lab will get you started with the Oracle Cloud VMware Service. In this lab, you will provision a Oracle Cloud VMware Stack including the Oracle Cloud Infrastructure resources needed to host the solution.
 
 To log issues and view the Lab Guide source, go to the [github oracle](https://github.com/oracle/learning-library/issues/new) repository.
 
@@ -13,31 +13,35 @@ As a System Administrator or application developer,
 
 ## Required Artifacts
 
-- An Oracle Cloud Infrastructure account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape
+- An Oracle Cloud Infrastructure account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape.
+- A virtual cloud network with a recommended CIDR size of /22 or greater.
 
 
 # Provisioning Oracle Cloud VMware Solution
 
-In this section you will be provisioning OCVS using the Oracle cloud infrstructure console.
+In this section, you will be provisioning OCVS using the Oracle cloud infrstructure console.
+
 ## Steps
 
-### STEP 1: Create an Exadata Cloud Service Database
+### STEP 1: Create an SDDC
 
-**Login to your OCI account as a database user**
+**Sign in to the OCI console**
 
--  Click on the hamburger menu icon on the top left of the screen
+-  Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
--  Click on **VMware Solution** from the menu
+-  Under **Solutions and Platform**, click on **VMware Solution**.
 
-![](./images/Infra/provision_db/oci_hamburger_menu.png " ")
+![](./images/Lab100/100_1.png " ")
 
-- Select **ExaCS Compartment** 
+- Select the compartment where you wish to deploy the solution from the **Compartment** drop down on the left side of the screen.
 
-![](./images/Infra/provision_db/oci_db_display.png " ")
+- Click on the **Create SDDC** button.
+
+![](./images/Lab100/100_3.png " ")
 
 **Note:** Oracle Cloud Infrastructure allows logical isolation of users within a tenancy through Compartments. This allows multiple users and business units to share an OCI tenancy while being isolated from each other.
 
-**If you have chosen the compartment you do not have privileges on, such as a root compartment, you will not be able to provision a Database instance in it.**
+**If you have chosen a compartment where you do not have the required privileges then you will not be able to provision the Solution in it.**
 
 More information about Compartments and Policies is provided in the OCI Identity and Access Management documentation [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm?tocpath=Services%7CIAM%7C_____13).
 
