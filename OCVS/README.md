@@ -58,7 +58,7 @@ Labs 300 - Extend/Integrate Apps running on OCVS to OCI native services
 - Migrate existing VMware workload from On-Prem to OCI.
 
 
-## Lab 3: Extend/Integrate Application with OCI Native Services
+## Lab 300: Extend/Integrate Application with OCI Native Services
 
 **Key Objectives**:
 
