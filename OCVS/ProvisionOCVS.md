@@ -1,6 +1,6 @@
 ## Introduction
 
-This lab walks you through the steps to get started using the Oracle Cloud VMware Service . In this lab, you will provision a Oracle Cloud VMware Stack along with underlying OCI components.
+This lab will get you started with the Oracle Cloud VMware Service. In this lab, you will provision a Oracle Cloud VMware Stack along with the OCI components needed to host the solution.
 
 To log issues and view the Lab Guide source, go to the [github oracle](https://github.com/oracle/learning-library/issues/new) repository.
 

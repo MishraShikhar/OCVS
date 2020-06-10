@@ -1,44 +1,26 @@
 ## Introduction
 
-Oracle Cloud VMware Solution is a fully secure VMware SDDC that includes Oracle Cloud Infrastructure resources and VMware software and licenses.
+Oracle Cloud VMware Solution (OCVS) is a fully certified, supported and secure VMware software defined data centre (SDDC) that is hosted on Oracle Cloud Infrastructure (OCI) and uses VMware software and licenses.
 
-The base configuration includes three Oracle Cloud Infrastructure Compute bare metal hosts (BM.DenseIO2.52), which you can scale up to 64 hosts in a single Oracle Cloud VMware Solution SDDC. The base configuration also includes an Oracle Cloud Infrastructure virtual cloud network (VCN), 156 OPCUs, 2304 GB of physical memory, and 153 TB of NVMe-based raw storage.
+The base configuration includes three Oracle Cloud Infrastructure Compute bare metal hosts (BM.DenseIO2.52). This configuration can be altered to allow a single Oracle Cloud VMware Solution SDDC to use 64 bare metal hosts. The base configuration also includes an Oracle Cloud Infrastructure virtual cloud network (VCN), 156 OPCUs, 2304 GB of physical memory, and 153 TB of NVMe-based raw storage.
 
 The solution includes VMware software such as vSphere, vSAN, NSX-T, and vCenter Server. The vSAN converged storage technology ensures the availability of data and replicates data across all the bare metal hosts in the SDDC.
 
-These hands-on lab guides provide step-by-step directions to setting up and using your Oracle in the Oracle Cloud Infrastructure.
-
-Lab 100 - Provision the Infrastructure.
-
-Labs 200 - Migrate On-Prem workload to OCVS 
-
-Labs 300 - Extend/Integrate Apps running on OCVS to OCI native services
+These hands-on lab guides provide step-by-step directions to set up and use your VMware Solution SDDC in the Oracle Cloud Infrastructure.
 
 ## Goals for this workshop
-1. Prepare your private network in the Oracle Cloud Infrastructure
-2. Provision Exadata Cloud Service Infrastructure in a private OCI network
-3. Provision databases on your Exadata Cloud Service Infrastructure
-4. Configure a development system for use with your Exadata Cloud Service database
-5. Setup VPN Connectivity to your Exadata Cloud Service Infrastructure
-6. Setup, Discover, Manage and Monitor database with Enterprise Manager
-7. Data Safe with Exadata Cloud Service
-8. Migrate an on-prem application schema using Data Pump
-9. Real time migration of database using Oracle Goldengate Replication
-10. Backup and Recovery using Console and API's
-11. Protect your data with Database Vault
-12. Data Safe Advanced lab
-13. Use OCI CLI commands to work with Exadata Cloud Service
-14. Automation with Terraform
-15. Build and deploy Python application stacks on Exadata Cloud Service
-16. Build APEX application on Exadata Cloud Service
-17. Install and configure Swingbench to simulate a transaction processing workload
-18. build a docker container running node.js connected to EXACS database
+1. Provision the infrastructure for the SDDC.
+2. Migrate on-premise workload to the SDDC.
+3. Extend application running on OCVS by integrating them with OCI native services.
 
+## Prerequisites
+1) 3 bare metal hosts (BM.DenseIO2.52) - Your tenancy should have access to at least 3 BM.DenseIO2.52 shape compute instances.
+2) A Virtual Cloud Network (VCN) - You need to either create a virtual cloud network or you can use an existing VCN to deploy the SDDC. We recommend using a VCN with an IP address CIDR size of /22 or greater to run the SDDC. 
 
-# Workshop Overview
-
-## Before You Begin
-
+## Labs
+Lab 100 - Provision the Infrastructure.
+Lab 200 - Migrate On-Prem workload to OCVS 
+Lab 300 - Extend/Integrate Apps running on OCVS to OCI native services
 
 **You are all set, let's begin!**
 
