@@ -43,7 +43,7 @@ Labs 300 - Extend/Integrate Apps running on OCVS to OCI native services
 **You are all set, let's begin!**
 
 
-## Lab 1: Prepare your private network in the Oracle Cloud Infrastructure (demo only)
+## Lab 100: Provision Oracle Cloud VMware Solution
 
 **Key Objectives**:
 - Create compartments and user groups with the right set of access policies for separation of duties
@@ -51,37 +51,19 @@ Labs 300 - Extend/Integrate Apps running on OCVS to OCI native services
 - Layout a secure network for the database and application infrastructure
 
 
-## Lab 2: Provision Exadata Infrastructure in a private OCI network (demo only)
+## Lab 200: Migrate On-Premise Workloads to OCI 
 
 **Key Objectives**:
 
-As a fleet administrator,
-- Deploy an Exadata Cloud Service Infrastructure in a pre-provisioned private network in your OCI account
+- Migrate existing VMware workload from On-Prem to OCI.
 
 
-## Lab 3: Provision databases on your Exadata Cloud Service Infrastructure (demo only)
-
-**Key Objectives**:
-
-As a database administrator,
-- Deploy database onto an Exadata Cloud Service Infrastructure
-
-
-## Lab 4: Configure a development system for use with your Exadata Cloud Service database
+## Lab 3: Extend/Integrate Application with OCI Native Services
 
 **Key Objectives**:
 
-As a database user, DBA or application developer,
+- 
 
-- Configure a secure connection from your application instance to your dedicated autonomous database using Oracle SQL Developer, SQLCLI and SQL*Plus.
-
-
-## Lab 5: Setup VPN Connectivity to your Exadata Cloud Service Infrastructure
-
-**Key Objectives**:
-As a database user, DBA or application developer,
-- Configure a VPN server in OCI based on OpenVPN software
-- Configure your VPN client and connect to VPN Server
 
 
 
