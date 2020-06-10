@@ -1,34 +1,18 @@
 ## Introduction
 
-An OCVS Cloud Service DB system consists of a quarter rack, half rack, or full rack of compute nodes and
-storage servers, tied together by a high-speed, low-latency Infiniband network and intelligent
-Exadata software. You can configure automatic backups, optimize for different workloads, and
-scale up the system to meet increased demands.
+Oracle Cloud VMware Solution is a fully secure VMware SDDC that includes Oracle Cloud Infrastructure resources and VMware software and licenses.
 
-The compute nodes are each configured with a virtual machine (VM). You have root privilege for
-the compute node VMs, so you can load and run additional software on them. However, you do
-not have administrative access to the Exadata infrastructure components, such as the physical
-compute node hardware, network switches, power distribution units (PDUs), integrated lights-out
-management (ILOM) interfaces, or the Exadata Storage Servers, which are all administered by
-Oracle.
+The base configuration includes three Oracle Cloud Infrastructure Compute bare metal hosts (BM.DenseIO2.52), which you can scale up to 64 hosts in a single Oracle Cloud VMware Solution SDDC. The base configuration also includes an Oracle Cloud Infrastructure virtual cloud network (VCN), 156 OPCUs, 2304 GB of physical memory, and 153 TB of NVMe-based raw storage.
 
-You have full administrative privileges for your databases, and you can connect to your databases
-by using Oracle Net Services from outside Oracle Cloud Infrastructure. You are responsible for
-database administration tasks such as creating tablespaces and managing database users. You
-can also customize the default automated maintenance setup, including backups, and you have
-full control of the recovery process in the event of a database failure.
+The solution includes VMware software such as vSphere, vSAN, NSX-T, and vCenter Server. The vSAN converged storage technology ensures the availability of data and replicates data across all the bare metal hosts in the SDDC.
 
-These hands-on lab guides provide step-by-step directions to setting up and using your Exadata Cloud Service platform in the Oracle Cloud Infrastructure.
+These hands-on lab guides provide step-by-step directions to setting up and using your Oracle in the Oracle Cloud Infrastructure.
 
-Lab 1 - 5 deals with setting up the infrastructure and connectivity to Exadata Cloud Service.
+Lab 100 - Provision the Infrastructure.
 
-Labs 6 & 7 are geared towards Monitoring and Managing your Exadata Cloud Service databases.
+Labs 200 - Migrate On-Prem workload to OCVS 
 
-Labs 8 - 10 are intended for Backup, Recovering and Migrating your databases.
-
-Lab 11 - 12 onwards demonstrate advanced lab guides for Database Vault and advanced Data safe lab guides.
-
-Lab 13 - 16 are additional labs which talks about connecting your Exadata Cloud Service databases with Python application, working with OCI CLI, build APEX applications and automating with Terraform.
+Labs 300 - Extend/Integrate Apps running on OCVS to OCI native services
 
 ## Goals for this workshop
 1. Prepare your private network in the Oracle Cloud Infrastructure
@@ -54,21 +38,7 @@ Lab 13 - 16 are additional labs which talks about connecting your Exadata Cloud 
 # Workshop Overview
 
 ## Before You Begin
-**What is Exadata Cloud Service?**
 
-- Exadata Cloud Service is offered on Oracle Cloud Infrastructure, within OCI regions.
-- Exadata Cloud Service available in quarter Rack, Half Rack or full Rack configurations.
-- Exadata rack in OCI includes DB nodes, storage nodes and Infiniband switches.
-- The storage and compute nodes are connected via high bandwidth Infiniband network that
-provides RDMA based storage access to the compute nodes.
-- Exadata storage software runs on storage servers and offloads database SQL processing
-overheads.
-- Currently, a single VM per compute node is supported. It allows root access for customers
-while protecting hardware and network, DB nodes are virtualized using Xen based OVM.
-- Oracle Manages storage cells, switches, management or IB network while customer manages
-database compute nodes.
-- Exadata Cloud Service provides a control Plane, a Web-based self-service management
-interface for Exadata cloud service provisioning and interactive access to service administration function
 
 **You are all set, let's begin!**
 

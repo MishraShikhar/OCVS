@@ -1,11 +1,5 @@
 ## Introduction
 
-Oracle Cloud VMware Solution is a fully secure VMware SDDC that includes Oracle Cloud Infrastructure resources and VMware software and licenses.
-
-The base configuration includes three Oracle Cloud Infrastructure Compute bare metal hosts (BM.DenseIO2.52), which you can scale up to 64 hosts in a single Oracle Cloud VMware Solution SDDC. The base configuration also includes an Oracle Cloud Infrastructure virtual cloud network (VCN), 156 OPCUs, 2304 GB of physical memory, and 153 TB of NVMe-based raw storage.
-
-The solution includes VMware software such as vSphere, vSAN, NSX-T, and vCenter Server. The vSAN converged storage technology ensures the availability of data and replicates data across all the bare metal hosts in the SDDC. 
-
 This lab walks you through the steps to get started using the Oracle Cloud VMware Service . In this lab, you will provision a Oracle Cloud VMware Stack along with underlying OCI components.
 
 To log issues and view the Lab Guide source, go to the [github oracle](https://github.com/oracle/learning-library/issues/new) repository.
