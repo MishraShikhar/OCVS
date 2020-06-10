@@ -6,19 +6,19 @@ To log issues and view the Lab Guide source, go to the [github oracle](https://g
 
 ## Objectives
 
-As a database user, DBA or application developer,
+As a System Administrator or application developer,
 
-- Rapidly deploy databases on exadata cloud service 
-- Manage your database backups
+- Rapidly deploy OCVS on Oracle cloud Infrstructure 
+- Manage your VMware workloads
 
 ## Required Artifacts
 
-- An Oracle Cloud Infrastructure account with a pre-provisioned Exadata Infrastructure 
+- An Oracle Cloud Infrastructure account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape
 
 
-# Provisioning an Exadata Cloud Service Database Instance
+# Provisioning Oracle Cloud VMware Solution
 
-In this section you will be provisioning a database using the cloud console.
+In this section you will be provisioning OCVS using the Oracle cloud infrstructure console.
 ## Steps
 
 ### STEP 1: Create an Exadata Cloud Service Database
@@ -27,9 +27,7 @@ In this section you will be provisioning a database using the cloud console.
 
 -  Click on the hamburger menu icon on the top left of the screen
 
-![](./images/Infra/provision_db/oci_homepage.png " ")
-
--  Click on **Bare Metal, VM, and Exadata** from the menu
+-  Click on **VMware Solution** from the menu
 
 ![](./images/Infra/provision_db/oci_hamburger_menu.png " ")
 
