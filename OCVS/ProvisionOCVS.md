@@ -6,15 +6,15 @@ To log issues and view the Lab Guide source, go to the [github oracle](https://g
 
 ## Objectives
 
-As a System Administrator or application developer,
+As a System Administrator or application developer:
 
-- Rapidly deploy OCVS on Oracle cloud Infrstructure 
+- Rapidly deploy OCVS on Oracle cloud Infrastructure 
 - Manage your VMware workloads
 
 ## Required Artifacts
 
 - An Oracle Cloud Infrastructure account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape.
-- A virtual cloud network with a recommended CIDR size of /22 or greater.
+- A Virtual Cloud Network with a recommended CIDR size of /22 or greater.
 
 
 # Provisioning Oracle Cloud VMware Solution
@@ -51,6 +51,8 @@ More information about Compartments and Policies is provided in the OCI Identity
     - VMware Software Version: The version of bundled VMware software that you want to install on the ESXi hosts. The software bundle includes vSphere, vSAN, and NSX components. 
     - Number of ESXi Hosts: The initial number of ESXi hosts to create in the SDDC. This number has to be at least 3 and can be at most 64. 
     
+    ![](./images/Labs/100_4.png " ")
+
     **Note:** The Oracle Cloud VMware Solution supports addition and deletion of ESXi hosts in the SDDC. 
     
     - Prefix for ESXi Hosts: (Optional) The optional prefix that you would like to use for the names of the ESXi hosts for identification. This string follows the same rules, as the SDDC name.
@@ -61,27 +63,32 @@ More information about Compartments and Policies is provided in the OCI Identity
 
 - Click Next.
 
--	On the SDDC Networks page, provide the following values: 
+    ![](./images/Labs/100_5.png " ")
+
+- On the SDDC Networks page, provide the following values: 
 - Virtual Cloud Network (VCN): Choose a VCN for the SDDC. The VCN can be in a different compartment than the SDDC and its ESXi hosts. The VCN represents the underlying data center network that hosts the SDDC.
--	Create New Subnet and VLAN: Select this option to have the provisioning process create the network resources for this SDDC. 
+- Create New Subnet and VLAN: Select this option to have the provisioning process create the network resources for this SDDC. 
 
 
--	SDDC Management CIDR: Enter an available CIDR block in your selected VCN for the SDDC management CIDR. This CIDR is divided into eight segments to use for the provisioning subnet and seven VLANs (as listed in the “Before You Begin” section). The size must be at least /22 to allow the maximum of 64 ESXi hosts to each have their own IP address. Click Check Availability to ensure that CIDR block is available in the VCN. 
--	NSX Network: Enter the SDDC workload CIDR block. This CIDR block provides the IP addresses that VMware VMs in the SDDC use to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block.
+- SDDC Management CIDR: Enter an available CIDR block in your selected VCN for the SDDC management CIDR. This CIDR is divided into eight segments to use for the provisioning subnet and seven VLANs (as listed in the “Before You Begin” section). The size must be at least /22 to allow the maximum of 64 ESXi hosts to each have their own IP address. Click Check Availability to ensure that CIDR block is available in the VCN. 
 
--	Click Next to review the summary of settings for creating the SDDC. When you are satisfied with the summary information, click Create SDDC.
+    ![](./images/Labs/100_6.png " ")
 
-The summary page tells you that the SDDC creation request successfully initiated and shows the provisioning status of each resource. Successful provisioning takes about 2 hours and 30 minutes to complete. 
+- NSX Network: Enter the SDDC workload CIDR block. This CIDR block provides the IP addresses that VMware VMs in the SDDC use to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block.
 
--	To monitor the progress of the SDDC creation, click the URL at the top of the summary page. The SDDC details page opens. See the next section.
+    ![](./images/Labs/100_7.png " ")
 
+- Click Next to review the summary of settings for creating the SDDC. When you are satisfied with the summary information, click Create SDDC.
 
-- After filling all the required details, click on **Create Database**  
-![](./images/Infra/provision_db/oci_create_db.png " ")
+    ![](./images/Labs/100_8.png " ")
 
-- Your Exadata cloud service database instance should be up and running in a few minutes.
+     ![](./images/Labs/100_9.png " ")
 
-![](./images/Infra/provision_db/oci_db_provisioning.png " ")
+    The summary page tells you that the SDDC creation request successfully initiated and shows the provisioning status of each resource. Your SDDC should be up and running in roughly two and a half hours.
 
+     ![](./images/Labs/100_10.png " ")
 
-That is it! Your SDDC should be up and running in roughly two and a half hours.
+- To monitor the progress of the SDDC creation, click the URL at the top of the summary page. The SDDC details page opens. See the next section.
+
+    ![](./images/Labs/100_11.png " ")
+

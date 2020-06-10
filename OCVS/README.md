@@ -24,7 +24,7 @@ Lab 200 - Migrate On-Prem workload to OCVS.
 
 Lab 300 - Extend/Integrate Apps running on OCVS to OCI native services.
 
-**You are all set, let's begin!**
+**You are all set. Let us begin!**
 
 
 ## Lab 100: Provision Oracle Cloud VMware Solution
