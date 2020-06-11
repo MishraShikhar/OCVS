@@ -54,5 +54,3 @@ Lab 300 - Extend/Integrate Apps running on OCVS to OCI native services.
 ## Appendix
 
 **This covers some general help for Windows users and other occasional issues you may encounter while working with your Exadata Cloud Service.**
-
-Thank you
