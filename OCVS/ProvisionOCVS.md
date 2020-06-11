@@ -124,6 +124,10 @@ Select the Public IP address, username and inistail password from our VM console
 
 When you login the first time it will ask to change your password. Reset your password and make a note of it.
 
+    ![](./images/Lab100/100_24.png " ")
+
+    ![](./images/Lab100/100_25.png " ")
+
 Now we will goto our SDDC created and copy the vSphere Client vCenter URL
 
     ![](./images/Lab100/100_20.png " ")
