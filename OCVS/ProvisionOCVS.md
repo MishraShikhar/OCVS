@@ -91,3 +91,53 @@ More information about Compartments and Policies is provided in the OCI Identity
     ![](./images/Lab100/100_11.png " ")
 
 ### STEP 2: Access your SDDC
+
+Once we have our SDDC up and running we will need to setup a compute instance as a jumpbox in public subnet of the same VCN.
+
+Goto Menu - Compute - Instances and click Create Instance
+
+    ![](./images/Lab100/100_12.png " ")
+
+    ![](./images/Lab100/100_16.png " ")
+
+Give a suitable name to the instance, select the Windows 2016 Standard image
+
+    ![](./images/Lab100/100_17.png " ")
+
+Select a VM.Standard2.1 shape for your compute instance    
+
+    ![](./images/Lab100/100_15.png " ")
+
+Select the same VCN we have used for creating our SDDC and select a public subnet, so that we can have a public IP assigned to the VM
+
+    ![](./images/Lab100/100_18.png " ")
+
+Click create instance.
+
+**Upon creating this instance, both a user name and an initial password will be generated for you. They will be available on the details screen for the newly launched Instance. You must create a new password upon logging into the instance for the first time.**
+
+Once thw VM is created click your instance for details and login to the instance using Remote Desktop application. 
+
+Select the Public IP address, username and inistail password from our VM console and add these credentials to RDP to login.
+
+    ![](./images/Lab100/100_19.png " ")
+
+When you login the first time it will ask to change your password. Reset your password and make a note of it.
+
+Now we will goto our SDDC created and copy the vSphere Client vCenter URL
+
+    ![](./images/Lab100/100_20.png " ")
+
+Within your Windows machine install chrome browser and paste this link. You will get a warning for unprotected access, click continue.
+
+    ![](./images/Lab100/100_21.png " ")
+
+Here you will need to add username/password credentials. Let's go back to SDDC details on OCI and copy vCenter Initial Username and vCenter Initial Password.
+
+You also get the NSX login information here
+
+    ![](./images/Lab100/100_22.png " ")
+
+Now you should be able to access the vCenter and from here you can manage the VMware environment. You can see the backend host we have proviasioned in our environment.
+
+    ![](./images/Lab100/100_23.png " ")
