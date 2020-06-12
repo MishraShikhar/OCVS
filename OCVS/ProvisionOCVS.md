@@ -67,48 +67,61 @@ More information about Compartments and Policies is provided in the OCI Identity
 
 - On the SDDC Networks page, provide the following values:- 
     - Virtual Cloud Network (VCN): The VCN represents the underlying data center network that hosts the SDDC. The VCN can be in a different compartment than the SDDC and its ESXi hosts. 
-    - Create New Subnet and VLAN: Select this option to have the provisioning process create the network resources for this SDDC. 
-    - SDDC Management CIDR: Enter an available CIDR block in your selected VCN for the SDDC management CIDR. This CIDR is divided into eight segments to use for the provisioning subnet and seven VLANs (as listed in the “Before You Begin” section). The size must be at least /22 to allow the maximum of 64 ESXi hosts to each have their own IP address. Click Check Availability to ensure that CIDR block is available in the VCN. 
-
+    - Create New Subnet and VLAN: If the network resources for this SDDC have to be created then this option has to be selected. 
+    - SDDC Management CIDR: An available CIDR block in the selected VCN for the SDDC management CIDR. 
+    
+    **The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. As previously mentioned, the size must be at least /22 to allow the maximum of 64 ESXi hosts to each have their own IP address. Clicking on Check Availability will help ensure that the selected CIDR block is available in the VCN. 
+    
     ![](./images/Lab100/100_6.png " ")
 
-    - NSX Network: Enter the SDDC workload CIDR block. This CIDR block provides the IP addresses that VMware VMs in the SDDC use to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block.
+    - NSX Network: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block.
 
     ![](./images/Lab100/100_7.png " ")
 
-- Click Next to review the summary of settings for creating the SDDC. When you are satisfied with the summary information, click Create SDDC.
+    - Click on **Next** to review a summary of the settings for creating the SDDC. If everything is correct, click on **Create SDDC**.
 
     ![](./images/Lab100/100_8.png " ")
 
     ![](./images/Lab100/100_9.png " ")
 
-    The summary page tells you that the SDDC creation request successfully initiated and shows the provisioning status of each resource. Your SDDC should be up and running in roughly two and a half hours.
+    The summary page tells you that the SDDC creation request has been initiated and shows the provisioning status of each resource. The SDDC should be up and running in, roughly, two and a half hours.
 
-     ![](./images/Lab100/100_10.png " ")
+    ![](./images/Lab100/100_10.png " ")
 
-- To monitor the progress of the SDDC creation, click the URL at the top of the summary page. The SDDC details page opens. See the next section.
+- To monitor the progress of the SDDC creation, click on the URL at the top of the summary page. The SDDC details page will open. 
 
-    ![](./images/Lab100/100_11.png " ")
+![](./images/Lab100/100_11.png " ")
 
 ### STEP 2: Access your SDDC
 
-- Once we have our SDDC up and running we will need to setup a compute instance as a jumpbox in public subnet of the same VCN.
+- Once the SDDC is up and running, we will need a public compute instance in the same VCN, as the SDDC, to act as the bastion host.
 
-- Goto Menu - Compute - Instances and click Create Instance
+- Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
-    ![](./images/Lab100/100_12.png " ")
+- Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
 
-    ![](./images/Lab100/100_16.png " ")
+![](./images/Lab100/100_12.png " ")
 
-- Give a suitable name to the instance, select the Windows 2016 Standard image
+- On the instances page, click on the **Create Instance** button.
 
-    ![](./images/Lab100/100_17.png " ")
+![](./images/Lab100/100_13.png " ")
 
-- Select a VM.Standard2.1 shape for your compute instance    
+![](./images/Lab100/100_14.png " ")
+
+- On the Create Compute Instance page, provide the following values:- 
+    - Name: The name of the virtual machine. 
+    - Image or Operating System: The image / operating system to be used by the virtual machine. We want to use the Windows Server 2016 Standard Image for this machine. 
+    
+    **Clicking on the Change Image button will open a side panel, where you can scroll down to fidn the Windows Server 2016 Standard image**
 
     ![](./images/Lab100/100_15.png " ")
 
-- Select the same VCN we have used for creating our SDDC and select a public subnet, so that we can have a public IP assigned to the VM
+    - Availability Domain (AD) - The AD where the instance will be provisioned. 
+    - Shape: The shape (OCPU / memory) configuraion of the machine. Select a VM.Standard2.1 shape for your compute instance.
+
+    ![](./images/Lab100/100_16.png " ")
+
+    - Select the same VCN we have used for creating our SDDC and select a public subnet, so that we can have a public IP assigned to the VM
 
     ![](./images/Lab100/100_18.png " ")
 
