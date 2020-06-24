@@ -13,13 +13,19 @@
         "filename": "ProvisionOCVS.md" 
       },
       {
-        "title": "Lab 200: Migrate on-premise workload to OCVS",
-        "description": "Migrate on-premise workload to OCVS",
+        "title": "Lab 200: Generate Export of On-Premises workload",
+        "description": "Export on-premises workload in the form of a .ovf file",
+        "publisheddate": "6/20/2020",
+        "filename": "ExportWorkload.md"
+      },
+      {
+        "title": "Lab 300: Migrate On-Premises workload to OCVS",
+        "description": "Migrate on-premises workload to OCVS",
         "publisheddate": "6/20/2020",
         "filename": "MigratingOnPremtoOCI.md"
       },
       {
-        "title": "Lab 300: Extend Application to OCI",
+        "title": "Lab 400: Extend Application to OCI",
         "description": "Extend the solution to use OCI services",
         "publisheddate": "6/20/2020",
         "filename": "ExtendApptoOCI.md"

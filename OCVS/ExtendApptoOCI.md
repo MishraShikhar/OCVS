@@ -1,8 +1,6 @@
 ## Introduction
 
-Now we will extend your on-prem app to use OCI services
-
-
+In this lab, we will extend the application that we deployed in the VMWare SDDC in Lab 200 by integrating it with <>. 
 
 ## Modify our Route Rules
 
@@ -18,7 +16,7 @@ Now select the subnets on the left and select the VMWare subnet
 
 Click on the route table that is associated with this subnet and click Add Route Rule
 
-With target Type as NAT Gateway, destination CIDR as 0.0.0.0/0 and Target NAT Gateway as NAT-G (long lost cousin on Parle-G), click Add Route Rule
+With target Type as NAT Gateway, destination CIDR as 0.0.0.0/0 and Target NAT Gateway as NAT-G, click Add Route Rule
 
 Again click add route, now with Target Type as Private IP, destination CIDR as 172.0.0.0/24 and Target will be the NSX EDge IP Adress that we copied in our notes bofore, click Add Route Rule.
 

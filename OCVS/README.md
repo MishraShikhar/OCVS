@@ -1,6 +1,6 @@
 ## Introduction
 
-Oracle Cloud VMware Solution (OCVS) is a fully certified, supported and secure VMware software defined data centre (SDDC) that is hosted on Oracle Cloud Infrastructure (OCI) and uses VMware software and licenses.
+[Oracle Cloud VMware Solution](Link) (OCVS) is a fully certified, supported and secure VMware software defined data centre (SDDC) that is hosted on Oracle Cloud Infrastructure (OCI) and uses VMware software and licenses.
 
 The base configuration includes three Oracle Cloud Infrastructure Compute bare metal hosts (BM.DenseIO2.52). This configuration can be altered to allow a single Oracle Cloud VMware Solution SDDC to use 64 bare metal hosts. The base configuration also includes an Oracle Cloud Infrastructure virtual cloud network (VCN), 156 OPCUs, 2304 GB of physical memory, and 153 TB of NVMe-based raw storage.
 
@@ -10,7 +10,7 @@ These hands-on lab guides provide step-by-step directions to set up and use your
 
 ## Goals for this workshop
 1. Provision the infrastructure for the SDDC.
-2. Migrate on-premise workload to the SDDC.
+2. Migrate on-premises workload to the SDDC.
 3. Extend application running on OCVS by integrating them with OCI native services.
 
 ## Prerequisites
@@ -20,7 +20,9 @@ These hands-on lab guides provide step-by-step directions to set up and use your
 ## Labs
 Lab 100 - Provision the Infrastructure.
 
-Lab 200 - Migrate On-Prem workload to OCVS. 
+Lab 200 - Generate Export of On-Premises workload.
+
+Lab 300 - Migrate the On-Premises workload to OCVS. 
 
 Lab 300 - Extend/Integrate Apps running on OCVS to OCI native services.
 
@@ -34,15 +36,17 @@ Lab 300 - Extend/Integrate Apps running on OCVS to OCI native services.
 - Create admin and database user accounts
 - Layout a secure network for the database and application infrastructure
 
+## Lab 200: Generate Export of On-Premises workload
 
-## Lab 200: Migrate On-Premise Workloads to OCI 
+
+## Lab 300: Migrate On-Premises Workloads to OCI 
 
 **Key Objectives**:
 
 - Migrate existing VMware workload from On-Prem to OCI.
 
 
-## Lab 300: Extend/Integrate Application with OCI Native Services
+## Lab 400: Extend/Integrate Application with OCI Native Services
 
 **Key Objectives**:
 
