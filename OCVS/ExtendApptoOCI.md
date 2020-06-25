@@ -94,6 +94,30 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 
 - Create Load Balancer
 
-    Navigate to the menu. Under **Networking**, select the Load Balancer.
+    Navigate to the menu. Under **Networking**, select the Load Balancer. On the next page, hit the **Create Load Balancer** button.
+
+    ![](./images/Lab400/400_22.png " ")
+    ![](./images/Lab400/400_23.png " ")
+
+    In the details page, provide a name to your Load Balancer, select the visibility Type as Public. The VCN should be the same VCN that we used for our VMWare solution. The subnet will be a regional subnet that we have already created. Once, all of this done, click on **Next**. 
+
+    ![](./images/Lab400/400_24.png " ")
+
+    Now load balancer policy will be the default Weighted Round Robin, health check Policy will be the default, click Next
+
+    ![](./images/Lab400/400_25.png " ")
+
     
-    
+    ![](./images/Lab400/400_26.png " ")
+    ![](./images/Lab400/400_27.png " ")
+    ![](./images/Lab400/400_28.png " ")
+    ![](./images/Lab400/400_29.png " ")
+    ![](./images/Lab400/400_30.png " ")
+    ![](./images/Lab400/400_31.png " ")
+
+
+Give a Listener name, Type of Traffic will be HTTP, port will be 80 and now click Submit
+
+
+
+
