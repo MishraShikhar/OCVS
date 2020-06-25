@@ -90,7 +90,23 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/Lab100/100_11.png " ")
 
-### STEP 2: Create a Bastion host to access your SDDC
+### STEP 2: Create public subnet to host Bastion server
+
+- Now that the SDDC is up and running ... we will create a public subnet. Click subnets on the left menu and click Create subnet
+
+    ![](./images/Lab100/100_11_1.png " ")
+
+- Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range, leave all other options as default.
+
+    ![](./images/Lab100/100_11_2.png " ")
+
+    ![](./images/Lab100/100_11_3.png " ")
+
+Click create, you should now see the public subnet created.
+
+    ![](./images/Lab100/100_11_4.png " ")
+
+### STEP 3: Create a Bastion host to access your SDDC
 
 - Once the SDDC is up and running, we will need a public compute instance in the same VCN, as the SDDC, to act as the bastion host.
 
