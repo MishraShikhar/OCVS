@@ -121,7 +121,7 @@ Once the SDDC is up and running, we will need a public compute instance in the s
     ![](./images/Lab100/100_11_3.png " ")
     ![](./images/Lab100/100_11_4.png " ")
 
-### Step 3: Create a **Network Address Translation (NAT) Gateway**
+### STEP 3: Create a **Network Address Translation (NAT) Gateway**
 
 In order to allow the SDDC which is sittng in a private subnet, to communicate with the internet, we will need a NAT Gateway.
 
@@ -141,7 +141,7 @@ In order to allow the SDDC which is sittng in a private subnet, to communicate w
 
 You have successfully created a NAT Gateway. Now, let us attach it to the private subnet where your SDDC resides.
     
-### Step 4: Attach the **NAT Gateway** to the SDDC subnet
+### STEP 4: Attach the **NAT Gateway** to the SDDC subnet
 
 You will now modify the route rules for the SDDC subnet to direct the traffic through the NAT Gateway that you just created.
 
@@ -177,7 +177,7 @@ You will now modify the route rules for the SDDC subnet to direct the traffic th
 
     ![](./images/Lab400/400_5.png " ")
 
-### STEP 3: Create a Bastion host to access your SDDC
+### STEP 5: Create a Bastion host to access your SDDC
 
 - Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
