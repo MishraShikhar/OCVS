@@ -23,7 +23,6 @@ As a System Administrator or application developer:
 
 ### STEP 1: Create an SDDC
 
-
 -  Sign in to the OCI console andn open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
 -  Under **Solutions and Platform**, click on **VMware Solution**.
@@ -89,6 +88,10 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/Lab100/100_11.png " ")
 
+- Make note of your SDDC's NSX Edge IP Address. You will need it, later, to setup the route rule.
+
+    ![](./images/Lab400/400_21.png " ")
+
 ### STEP 2: Create a Public Subnet to host the Bastion server
 
 Once the SDDC is up and running, we will need a public compute instance in the same VCN, as the SDDC, to act as the bastion host.
@@ -117,6 +120,62 @@ Once the SDDC is up and running, we will need a public compute instance in the s
 
     ![](./images/Lab100/100_11_3.png " ")
     ![](./images/Lab100/100_11_4.png " ")
+
+### Step 3: Create a **Network Address Translation (NAT) Gateway**
+
+In order to allow the SDDC which is sittng in a private subnet, to communicate with the internet, we will need a NAT Gateway.
+
+- From the **Resources** section on the left side of the page, select **NAT Gateway**.
+
+    ![](./images/Lab100/100_11_5.png " ")
+    
+- Click on the **Create NAT Gateway** button.
+
+    ![](./images/Lab400/400_6.png " ")
+
+- Provide a name and compartment for the NAT gateway and hit the **Create NAT Gateway** button on the iframe.
+    
+    ![](./images/Lab400/400_9.png " ")
+
+    ![](./images/Lab400/400_8.png " ")
+
+You have successfully created a NAT Gateway. Now, let us attach it to the private subnet where your SDDC resides.
+    
+### Step 4: Attach the **NAT Gateway** to the SDDC subnet
+
+You will now modify the route rules for the SDDC subnet to direct the traffic through the NAT Gateway that you just created.
+
+- From the **Resources** section on the left side of the web page, select **Subnets**.
+
+    ![](./images/Lab400/400_7.png " ")
+
+- From the list, select the private subnet.
+    
+    ![](./images/Lab400/400_2.png " ")
+
+- Click on the link to the associated **Route Table** in the panel at the top.
+
+    ![](./images/Lab400/400_3.png " ")
+
+- Click on the **Add Route Rules** button.
+
+    ![](./images/Lab400/400_13.png " ")
+
+- Select the **Target Type** as **NAT Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the NAT Gateway that you just created as the Target NAT Gateway. 
+
+    ![](./images/Lab400/400_14.png " ")
+
+    ![](./images/Lab400/400_15.png " ")
+
+    ![](./images/Lab400/400_16.png " ")
+
+- Select **Add Additional Route Rule** to add another rule. This time set the **Target Type** as **Private IP**, **Destination CIDR** as 172.0.0.0/24 and **Target** will be the NSX EDge IP Adress that we had copied earlier. After this, click on the **Add Route Rules**.
+
+    ![](./images/Lab400/400_17.png " ")
+
+    ![](./images/Lab400/400_18.png " ")
+
+    ![](./images/Lab400/400_5.png " ")
 
 ### STEP 3: Create a Bastion host to access your SDDC
 
