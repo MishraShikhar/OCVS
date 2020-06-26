@@ -17,8 +17,7 @@ As a System Administrator or application developer:
 
 - An Oracle Cloud Infrastructure account with service limit of atleast **3 Bare Metal DenselIO 2.52** compute shape in the same availability domain.
 - A **virtual cloud network** with a recommended CIDR size of **/22** or greater. 
-- A subnet within the aforementioned vcn with a **/24** CIDR size for the workloads.
-
+- A private subnet within the aforementioned vcn with a **/24** CIDR size for the workloads.
 
 ## Steps
 
@@ -90,25 +89,36 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/Lab100/100_11.png " ")
 
-### STEP 2: Create public subnet to host Bastion server
+### STEP 2: Create a Public Subnet to host the Bastion server
 
-- Now that the SDDC is up and running ... we will create a public subnet. Click subnets on the left menu and click Create subnet
+Once the SDDC is up and running, we will need a public compute instance in the same VCN, as the SDDC, to act as the bastion host.
 
+-  We will now create a public subnet to host the bastion server. Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
+
+    ![](./images/Lab100/100_11_0.png " ")
+
+- Select your VCN from the given list. In our case, the following VCN shows up. You could be seeing a longer list.
+
+    ![](./images/Lab100/100_11_000.png " ")
+
+**Note**: At any point of time, during this workshop, if you find that a resource has gone missing, then check if you are in the right region and/or in the right compartment.
+
+![](./images/Lab100/100_11_00.png " ")
+
+- Click on your VCN and then get to subnets from the menu on the left and click on **Create Subnet**.
+    
     ![](./images/Lab100/100_11_1.png " ")
 
-- Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range, leave all other options as default.
+- Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
 
     ![](./images/Lab100/100_11_2.png " ")
 
+- Click on the **Create Subnet** button. You should now see the public subnet created.
+
     ![](./images/Lab100/100_11_3.png " ")
-
-Click create, you should now see the public subnet created.
-
     ![](./images/Lab100/100_11_4.png " ")
 
 ### STEP 3: Create a Bastion host to access your SDDC
-
-- Once the SDDC is up and running, we will need a public compute instance in the same VCN, as the SDDC, to act as the bastion host.
 
 - Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 

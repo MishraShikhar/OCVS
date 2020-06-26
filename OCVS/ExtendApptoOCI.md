@@ -103,22 +103,39 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 
     ![](./images/Lab400/400_24.png " ")
 
-    Now, let **Load Balancer policy** be the default **Weighted Round Robin**. **Health check Policy** will also be the default. We will add the backend sets, later. So, simply click on **Next**.
+    Now, let **Load Balancer policy** be set to the default, **Weighted Round Robin**. **Health check Policy** will also be the default. We will add the backend sets, later. So, simply click on **Next**.
 
     ![](./images/Lab400/400_25.png " ")
     ![](./images/Lab400/400_26.png " ")
 
     On the next screen, provide a name for your listener. The Traffic will be **HTTP** and the port will be 80. Now, click on **Submit**.
 
+    ![](./images/Lab400/400_80.png " ")
+
     The load balancer should be up and running, shortly.
     
     ![](./images/Lab400/400_30.png " ")
 
-    Go to the menu on the left hand side and click on **Backend Sets**. Thereafter, click on the **Create Backend Set**. 
+    ![](./images/Lab400/400_79.png " ")
 
-    In the menu that will open, specify the name. Fill out the health check, as shown in the picture, below. Then, hit **Create**. 
+    We will now add our oscommerce application as the backend to this load balancer. CLick on **Backend Sets** on the panel to the left.
+     
+     ![](./images/Lab400/400_81.png " ")
 
-    ![](./images/Lab400/400_31.png " ")
+     Select your load balancer from the list.
+
+     ![](./images/Lab400/400_82.png " ")
+
+     Click on **Add Backends**. 
+
+     ![](./images/Lab400/400_83.png " ")
+    
+    Fill out the details and click on **Add**.
+     ![](./images/Lab400/400_85.png " ")
+
+     Your oscommerce application has been added as a backend to the load balancer.
+      
+     ![](./images/Lab400/400_86.png " ")
 
     We will now add a rule in the security list of the subnet with our load balancer to accept requests from  the internet.
 
@@ -245,3 +262,4 @@ Your Load Balancer is now working on top of your application.
     Follow a similar process to login to your Oracle Linux machine and to mount the file system using the aforementioned commands. You can now access the same file.
 
     ![](./images/Lab400/400_77.png " ")
+
