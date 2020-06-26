@@ -27,34 +27,3 @@ Lab 300 - Migrate the On-Premises workload to OCVS.
 Lab 300 - Extend/Integrate Apps running on OCVS to OCI native services.
 
 **You are all set. Let us begin!**
-
-
-## Lab 100: Provision Oracle Cloud VMware Solution
-
-**Key Objectives**:
-- Create compartments and user groups with the right set of access policies for separation of duties
-- Create admin and database user accounts
-- Layout a secure network for the database and application infrastructure
-
-## Lab 200: Generate Export of On-Premises workload
-
-
-## Lab 300: Migrate On-Premises Workloads to OCI 
-
-**Key Objectives**:
-
-- Migrate existing VMware workload from On-Prem to OCI.
-
-
-## Lab 400: Extend/Integrate Application with OCI Native Services
-
-**Key Objectives**:
-
-- 
-
-
-
-
-## Appendix
-
-**This covers some general help for Windows users and other occasional issues you may encounter while working with your Exadata Cloud Service.**
