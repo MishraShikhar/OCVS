@@ -53,7 +53,7 @@ This section outlines the installation of VMWare workstation and how to configur
 
 We we will now use this virtual machine to host the osCommerce application.
  
-### Step 2: Install and Setup LAMP (Linux, Apache, MySQL, PHP) & SSH
+### STEP 2: Install and Setup LAMP (Linux, Apache, MySQL, PHP) & SSH
 
 Before we begin, please verify that internet is working on the oscommerce VM. We will need to connect to the internet to install the required packages. In case of issues, shut down the virtual machine and disable/turn off any VPN applications/programs. After doing so, power up the Ubuntu virtual machine. This will allow the Ubuntu Virtual Machine to download and install Linux packages.
 
@@ -159,7 +159,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
     ![](./images/Lab200/200_7.png " ")
 
-### Step 3: Setup OSCommerce Application
+### STEP 3: Setup OSCommerce Application
 
 - Make a temporary folder named **tmp** and switch to the new directory. You will download osCommerce files in the folder. 
 
@@ -207,7 +207,7 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
     
         sudo chmod 644 /var/www/html/catalog/admin/includes/configure.php
 
-### Step 4: Configure osCommerce for End User
+### STEP 4: Configure osCommerce for End User
 
 - Type **localhost/catalog/admin** in the address bar of the browser. You will need to log in with the admin username and password that you entered while setting up your osCommerce Online Store. 
 
@@ -231,7 +231,7 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 
     ![](./images/Lab200/200_15.png " ")
 
-### Step 5: Export OVF File from VMWare Workstation to Object Storage
+### STEP 5: Export OVF File from VMWare Workstation to Object Storage
 
 - From VMware Workstation, shut down the osCommerce     virtual machine (quitting will also have the same result). Export the appliance from VMware Workstation. Set the file location for the .ovf export. Export should take about 5 minutes. While the export is in progress, let us proceed to the next steps.
     
