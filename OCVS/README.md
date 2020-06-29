@@ -10,12 +10,13 @@ These hands-on lab guides provide step-by-step directions to set up and use your
 
 ## Goals for this workshop
 1. Provision the infrastructure for the SDDC.
-2. Migrate on-premises workload to the SDDC.
-3. Extend application running on OCVS by integrating them with OCI native services.
+2. Export and migrate on-premises workload to the SDDC.
+3. Extend application running on OCVS by integrating it with OCI native services.
 
 ## Prerequisites
-1. 3 bare metal hosts (BM.DenseIO2.52) - Your tenancy should have access to at least 3 BM.DenseIO2.52 shape compute instances.
+1. 3 bare metal hosts (BM.DenseIO2.52) - Your tenancy should have access to at least 3 BM.DenseIO2.52 shape compute instances in a single Availability Domain.
 2. A Virtual Cloud Network (VCN) - You need to either create a virtual cloud network or you can use an existing VCN to deploy the SDDC. We recommend using a VCN with an IP address CIDR size of /22 or greater to run the SDDC. 
+3. The user should have the privileges to deploy Bare metal compute instances, and  to create or update VCNs, Load Balancers and Object Storage Buckets. 
 
 ## Labs
 Lab 100 - Provision the Infrastructure.

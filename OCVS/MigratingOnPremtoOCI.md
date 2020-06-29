@@ -39,7 +39,7 @@ In this lab, we will import the on-premises VMWare environment that we had expor
     ![](./images/Lab300/300_7.png " ")
     ![](./images/Lab300/300_8.png " ")
 
-- Now, select the storage. After doing so, choose the choose the Workload network on the next screen.
+- Now, select the storage. After doing so, choose the Workload network on the next screen.
 
     ![](./images/Lab300/300_9.png " ")
     ![](./images/Lab300/300_10.png " ")

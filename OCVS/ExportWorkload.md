@@ -2,9 +2,10 @@
 
 ## Introduction
 
-In this lab, we will export the on-premises workload into a format that can be imported into OCVS. For this, we will simulate an on-premise environment using VMWare Workstation. The VMWare Workstation can be easily installed on a laptop or another virtual machine. After that, we will configure an e-Commerce application on the infrastructure and export the workload in the form of a .ovf file and upload it to a bucket in Object Storage.
+In this lab, we will export the on-premises workload into a format that can be imported into OCVS. For this, we will simulate an on-premise environment using VMWare Workstation. The VMWare Workstation can be easily installed on a laptop or another virtual machine. After that, we will configure an e-Commerce application on the infrastructure and export the workload in the form of a .ovf file and upload it to a bucket in Object Storage. This .ovf file be downloaded and imported into OCVS in the next lab. 
 
-**This lab is optional. Should you wish to skip this part, please download the OVF file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkXIkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk).**
+**This lab is optional. Should you wish to skip this part, please download the VMDK file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkX
+IkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk).**
 
 ## Objectives
 - Export a VM as a .ovf file from on-premises VMWare infrastructure.
@@ -35,7 +36,7 @@ This section outlines the installation of VMWare workstation and how to configur
 
 ![](./images/Lab200/200_1.png " ")
 
-- Provide a name for the virtual machine. We will using the name **oscommerce** going forward. Also, specify a path for the VM. After that, click on **Import**.
+- Provide a name for the virtual machine. We will be using the name **oscommerce** going forward. Also, specify a path for the VM. After that, click on **Import**.
 
 ![](./images/Lab200/200_2.png " ")
 
@@ -161,7 +162,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
 ### Step 3: Setup OSCommerce Application
 
-- Make a temporary folder named **tmp** and switch to the new directory. You will download osCommerce files in the folder. 
+- Make a temporary folder named **tmp** and switch to the new directory. You will download osCommerce files in this folder. 
 
         mkdir tmp
 
@@ -289,4 +290,3 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 The OVF file has been successfully exported and uploaded to the object storage. Click the three dots next to the .zip file and select **Create Pre-Authenticated Request**. Leave the default selections and click **Create Pre-Authenticated Request**. Copy the pre-authenticated request URL. This will be used later,  when creating the custom image.
 
 ![](./images/Lab200/200_29.png " ")
-

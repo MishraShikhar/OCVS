@@ -23,7 +23,7 @@ As a System Administrator or application developer:
 
 ### STEP 1: Create an SDDC
 
--  Sign in to the OCI console andn open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
+-  Sign in to the OCI console and open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
 -  Under **Solutions and Platform**, click on **VMware Solution**.
 
@@ -64,13 +64,13 @@ More information about Compartments and Policies is provided in the OCI Identity
 - On the SDDC Networks page, provide the following values:- 
     - **Virtual Cloud Network (VCN)**: The VCN represents the underlying data center network that hosts the SDDC. The VCN can be in a different compartment than the SDDC and its ESXi hosts. 
     - **Create New Subnet and VLAN**: If the network resources for this SDDC have to be created, then this option has to be selected, otherwise enter the details of the subnet that you wish to use.
-    - **SDDC Management CIDR**: An available CIDR block in the selected VCN for the SDDC management CIDR. 
+    - **SDDC Networks**: An available CIDR block in the selected VCN for the SDDC management CIDR. 
     
     The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. As previously mentioned, the size must be at least /22 to allow the maximum of 64 ESXi hosts to each have their own IP address. Clicking on Check Availability will help ensure that the selected CIDR block is available in the VCN. 
     
     ![](./images/Lab100/100_6.png " ")
 
-    - **NSX Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block.
+    - **SDDC Workload Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block.
 
         ![](./images/Lab100/100_7.png " ")
 
@@ -94,9 +94,9 @@ More information about Compartments and Policies is provided in the OCI Identity
 
 ### STEP 2: Create a Public Subnet to host the Bastion server
 
-Once the SDDC is up and running, we will need a public compute instance in the same VCN, as the SDDC, to act as the bastion host.
+We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. Once the SDDC is up and running, we will need this jump server to access the SDDC.
 
--  We will now create a public subnet to host the bastion server. Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
+-  Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
 
     ![](./images/Lab100/100_11_0.png " ")
 
