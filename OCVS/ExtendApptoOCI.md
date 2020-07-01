@@ -54,8 +54,12 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 
      ![](./images/Lab400/400_83.png " ")
     
-    Select IP address and add the IP address of the oscommerce VM you created in Lab 300. Fill out other details and click on **Add**.
+    Navigate to your SDDC vSpehere and copy the IP address of the oscommerce VM you created in Lab 300.
+     
      ![](./images/Lab400/400_85_1.png " ")
+    
+    Select IP address option and fill out the details as shown in the image. Click on **Add**.
+
      ![](./images/Lab400/400_85_2.png " ")
 
      Your oscommerce application has been added as a backend to the load balancer.
@@ -64,14 +68,16 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 
     We will now add a rule in the security list of the subnet with our load balancer to accept requests from  the internet.
 
-    Return to your VCN and select the public subnet that you created. Click on the **Security List** for the subnet and go to **Ingress Rules**. Hit the **Add Ingress Rules** button and allow TCP traffic from 0.0.0.0/0 on port 80.
-
+    Return to your VCN and select the public subnet that you created. 
     ![](./images/Lab400/400_0.png " ")
     ![](./images/Lab400/400_1.png " ")
     ![](./images/Lab400/400_36_0.png " ")
+    
+    Click on the **Security List** for the public subnet and go to **Ingress Rules**. Hit the **Add Ingress Rules** button and allow TCP traffic from 0.0.0.0/0 on port 80.
+
     ![](./images/Lab400/400_36.png " ")
 
-    Now, we will configure the Network Security Groups to allow traffic from the load balancer. . 
+    Next, we will configure the Network Security Groups to allow traffic from the load balancer. . 
 
     In the **Resources** menu on the left side of the screen, click on **Network Security Groups**.
 
@@ -81,7 +87,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 
     ![](./images/Lab400/400_32.png " ")
 
-    Now, click the **Add Rule** button. Once, we add all the rules, your list would look similar to what we have below.
+    Click the **Add Rule** button. Once, we add all the rules, your list would look similar to what we have below.
 
     ![](./images/Lab400/400_33.png " ")
 
@@ -90,7 +96,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
     ![](./images/Lab400/400_34.png " ")
     ![](./images/Lab400/400_35.png " ")
 
-Your Load Balancer is now working on top of your application. You can use the public IP to access the Apache2's default homepage for Ubuntu. You can access the oscommcerce application by typing the <public IP>/catalog URL.
+Your Load Balancer is now working on top of your application. You can use the public IP of the Load Balancer to access the Apache2's default homepage for Ubuntu. You can access the oscommcerce application by typing the <public IP>/catalog URL.
     
 ### Use Case 2: Create a File Storage Network accessible inside the SDDC and in OCI
 
