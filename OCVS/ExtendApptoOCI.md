@@ -58,7 +58,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
      
      ![](./images/Lab400/400_85_1.png " ")
     
-    Select IP address option and fill out the details as shown in the image. Click on **Add**.
+    Select IP addresses option and fill out the details as shown in the image. Click on **Add**.
 
      ![](./images/Lab400/400_85_2.png " ")
 
@@ -122,13 +122,13 @@ Your Load Balancer is now working on top of your application. You can use the pu
 
     ![](./images/Lab400/400_44.png " ")
 
-    Select the **Create New Mount Point Target** radio button. Give the Mount Point Target a name. Choose the same VCN, as your SDDC and select the Private Regional subnet and click on the **Create** button.
+    Select the **Create New Mount Point Target** radio button. Give the Mount Point Target a name. Choose the same VCN, as your SDDC and select the **Private Regional** subnet and click on the **Create** button.
 
     ![](./images/Lab400/400_45.png " ")
     ![](./images/Lab400/400_46.png " ")
     ![](./images/Lab400/400_48.png " ")
     
-    You should be able to a screen, similar to the one below.
+    You should be able to see a screen, similar to the one below.
 
     ![](./images/Lab400/400_50.png " ")
     
@@ -139,7 +139,11 @@ Your Load Balancer is now working on top of your application. You can use the pu
     Change the **Image** to **Ubuntu**.
     ![](./images/Lab400/400_66.png " ")
 
-    As shown previously, open the mentioned ports in the private subnet containing the SDDC and also in subnet containing your Linux machine that will be sharing this file system. Please note that you might not have to open the egress rules, if you already have traffic open to 0.0.0.0/0 on all ports.
+    As shown in the image above, we need to open the mentioned ports in the private subnet containing the SDDC and also in subnet containing your Linux machine that will be sharing this file system. 
+    
+    ![](./images/Lab400/400_57_0.png " ")
+
+    Please note that you might not have to open the egress rules, if you already have traffic open to 0.0.0.0/0 on all ports. As shown previously add the required ingress rules, the source CIDR range is the workload CIDR created for the VMware NSX.
     
     ![](./images/Lab400/400_57.png " ")
     ![](./images/Lab400/400_58.png " ")
@@ -186,11 +190,14 @@ Your Load Balancer is now working on top of your application. You can use the pu
     ![](./images/Lab400/400_73.png " ")
     ![](./images/Lab400/400_72.png " ")
 
-    Go back to the file system export and fetch the commands for Oracle Linux.
+    We have successfully mounted the File system to an instance in VMware environment. As an extension we can also create a linux machine in the private subnet and mount the same FSS to that instance as well. 
+
+    After you spin up an Oracle linux machine go back to the file system export and fetch the commands for Oracle Linux.
 
     ![](./images/Lab400/400_53.png " ")
 
-    Follow a similar process to login to your Oracle Linux machine and to mount the file system using the aforementioned commands. You can now access the same file.
+    Follow a similar process to login to your Oracle Linux machine and to mount the file system using the aforementioned commands. You can now access the FSS and see the same file there as well.
 
     ![](./images/Lab400/400_77.png " ")
 
+    This shows how you can deploy a hybrid environment for your application, with some servers running on VMware virtualization and the rest running on OCI VCN.
