@@ -92,9 +92,9 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/Lab400/400_21.png " ")
 
-### STEP 2: Create a Public Subnet to host the Bastion server
+### STEP 2: Create a **Network Address Translation (NAT) Gateway**
 
-We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. Once the SDDC is up and running, we will need this jump server to access the SDDC.
+Since the SDDC is sittng in a private subnet, to allow it to communicate with the internet, we will need a NAT Gateway. 
 
 -  Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
 
@@ -107,23 +107,6 @@ We will now create a public subnet in the same VCN, as the SDDC, to host a Basti
 **Note**: At any point of time, during this workshop, if you find that a resource has gone missing, then check if you are in the right region and/or in the right compartment.
 
 ![](./images/Lab100/100_11_00.png " ")
-
-- Click on your VCN and then get to subnets from the menu on the left and click on **Create Subnet**.
-    
-    ![](./images/Lab100/100_11_1.png " ")
-
-- Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
-
-    ![](./images/Lab100/100_11_2.png " ")
-
-- Click on the **Create Subnet** button. You should now see the public subnet created.
-
-    ![](./images/Lab100/100_11_3.png " ")
-    ![](./images/Lab100/100_11_4.png " ")
-
-### STEP 3: Create a **Network Address Translation (NAT) Gateway**
-
-In order to allow the SDDC which is sittng in a private subnet, to communicate with the internet, we will need a NAT Gateway.
 
 - From the **Resources** section on the left side of the page, select **NAT Gateway**.
 
@@ -141,7 +124,7 @@ In order to allow the SDDC which is sittng in a private subnet, to communicate w
 
 You have successfully created a NAT Gateway. Now, let us attach it to the private subnet where your SDDC resides.
     
-### STEP 4: Attach the **NAT Gateway** to the SDDC subnet
+### STEP 3: Attach the **NAT Gateway** to the SDDC subnet
 
 You will now modify the route rules for the SDDC subnet to direct the traffic through the NAT Gateway that you just created.
 
@@ -177,6 +160,25 @@ You will now modify the route rules for the SDDC subnet to direct the traffic th
 
     ![](./images/Lab400/400_5.png " ")
 
+### STEP 4: Create a Public Subnet to host the Bastion server
+
+We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. Once the SDDC is up and running, we will need this jump server to access the SDDC.
+
+- From the **Resources** section on the left side of the page, get to subnets and click on **Create Subnet**.
+    
+    ![](./images/Lab100/100_11_1.png " ")
+
+- Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
+
+    ![](./images/Lab100/100_11_2.png " ")
+
+- Click on the **Create Subnet** button. You should now see the public subnet created.
+
+    ![](./images/Lab100/100_11_3.png " ")
+    ![](./images/Lab100/100_11_4.png " ")
+
+We still have to update the route rules for this subnet, but we will do that while we wait for our Bastion host to come up. So, let us go and create the Bastion Host. We will return to this public subnet, in a bit.
+
 ### STEP 5: Create a Bastion host to access your SDDC
 
 - Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
@@ -210,9 +212,99 @@ You will now modify the route rules for the SDDC subnet to direct the traffic th
 
     ![](./images/Lab100/100_18.png " ")
 
-- Click on the **Create** button.
+- Click on the **Create** button. Proceed to Step 6, while we wait for the creation to complete.
 
-**Upon creating this instance, both a user name and an initial password will be generated for you. They will be available on the details screen of the newly launched Instance. You must create a new password upon logging into the instance for the first time.**
+**Upon the creation of this instance, a user name and an initial password will be generated for you. They will be available on the details screen of the newly launched Instance. You must create a new password upon logging into the instance for the first time.**
+
+### STEP 6: Create an **Internet Gateway**
+
+Upon creation, the Bastion Server will have to communicate with the internet. For this, the public subnet will need an Internet Gateway.
+
+-  Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
+
+    ![](./images/Lab100/100_11_0.png " ")
+
+- Select your VCN from the given list. 
+
+    ![](./images/Lab100/100_11_000.png " ")
+
+- From the **Resources** section on the left side of the page, select **Internet Gateway**.
+
+    ![](./images/Lab100/100_11_6.png " ")
+    
+- Click on the **Create Internet Gateway** button.
+
+    ![](./images/Lab100/100_11_7.png " ")
+
+- Provide a name and compartment for the Internet gateway and hit the **Create Internet Gateway** button on the iframe.
+    
+    ![](./images/Lab100/100_11_8.png " ")
+
+    ![](./images/Lab100/100_11_9.png " ")
+
+You have successfully created an Internet Gateway. Now, let us attach it to the public subnet where your Bastion resides.
+    
+### STEP 7: Attach the **Internet Gateway** to the public subnet
+
+You will now modify the route rules for the public subnet to direct the traffic through the Internet Gateway that you just created.
+
+- From the **Resources** section on the left side of the web page, select **Subnets**.
+
+    ![](./images/Lab400/400_7.png " ")
+
+- From the list, select the public subnet.
+    
+    ![](./images/Lab100/100_11_10.png " ")
+
+- Click on the link to the associated **Route Table** in the panel at the top.
+
+    ![](./images/Lab100/100_11_11.png " ")
+
+- Click on the **Add Route Rules** button.
+
+    ![](./images/Lab100/100_11_12.png " ")
+
+- Select the **Target Type** as **Internet Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the Internet Gateway that you just created as the Target Internet Gateway. 
+
+    ![](./images/Lab100/100_11_13.png " ")
+
+- Select **Add Additional Route Rule** to add another rule. This time set the **Target Type** as **Private IP**, **Destination CIDR** as 172.0.0.0/24 and **Target** will be the NSX EDge IP Adress that we had copied earlier. After this, click on the **Add Route Rules**.
+
+    ![](./images/Lab100/100_11_14.png " ")
+
+    ![](./images/Lab100/100_11_15.png " ")
+
+### Step 8: Update security list to allow Remote Desktop connection
+
+- We will now open port 3389 in the Security List attached to the public subnet. Go back to the previous page and select **Security Lists** from the Resources panel.
+
+    ![](./images/Lab100/100_35.png " ")
+
+- Click on the Default Security List for the VCN, as it was the one that we attached to our public subnet.
+
+    ![](./images/Lab100/100_36.png " ")
+
+- Click on the **Add Ingress Rules** button.
+
+    ![](./images/Lab100/100_37.png " ")
+
+- Enter 0.0.0.0/0 as the **Source CIDR**, then click on the **IP Protocol** dropdown and select **RDP (TCP/3389)**. The **Destination Port Range** will get auto-populated with 3389.
+
+    ![](./images/Lab100/100_38.png " ")
+
+- Click on **Add Ingress Rules**.
+
+    ![](./images/Lab100/100_39.png " ")
+
+    ![](./images/Lab100/100_40.png " ")
+
+The Bastion host is now ready to accept remote desktop connections. 
+
+### Step 9: Access the SDDC using the Bastion 
+
+- Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
+
+    ![](./images/Lab100/100_12.png " ")
 
 - Once the VM is created, click on your instance for details.
 

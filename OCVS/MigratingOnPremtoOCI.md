@@ -20,15 +20,13 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 - Use the RDP client to connect to the bastion host. Now, login to the vSphere client of your OCVS platform and enter the credentials. You can get the vCenter server details from your OCVS page.
 
     ![](./images/Lab300/300_2.png " ")
+    
+- Once logged into the vSphere Client, right click on **Workload** and select **Deploy OVF Template**.
 
-- Go to **Menu** and select **Hosts and Clusters**.
+    ![](./images/Lab300/300_14.png " ")
 
-    ![](./images/Lab300/300_3.png " ")
-
-- Right click on the Host in the VMware Host client Inventory and Select **Deploy OVF Template**.
-
-    ![](./images/Lab300/300_4.png " ")
-
+    ![](./images/Lab300/300_15.png " ")
+    
 - Select the .ovf and VMDK file from the unzipped folder.
 
     ![](./images/Lab300/300_5.png " ")
@@ -48,11 +46,25 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
     ![](./images/Lab300/300_11.png " ")
 
-- Select the VM that you just imported and power it on.
+**Note**: You can monitor the progress of the import from the panel bar at the bottom of the screen, under the **Recent Tasks** tab.
 
-    ![](./images/Lab300/300_12.png " ")
+![](./images/Lab300/300_16.png " ")
 
-- Launch the web console and login to the VM. Open Firefox and enter **localhost/catalog/index.php** and check for the oscommerce index page.
+- Once the import OVF and deploy OVF tasks are complete, you can power on the VM, select the VM that you just imported and power it on by clicking on **Actions**, then selecting **Power On** under the Power sub-menu. Again, the status of the operation can be monitored from the **Recent Tasks** tab.
+
+    ![](./images/Lab300/300_17.png " ")
+
+    ![](./images/Lab300/300_18.png " ")
+
+- Launch the web console by clicking on the link just below the VM's thumbnail. Choose **Web Console** and click on **OK**. 
+
+    ![](./images/Lab300/300_19.png " ")
+
+    ![](./images/Lab300/300_20.png " ")
+    
+- Login to the VM with the password 'ubuntu'. Then, open Firefox and enter **localhost/catalog/index.php** and check for the oscommerce index page.
 
      ![](./images/Lab300/300_13.png " ")
+
+ 
 

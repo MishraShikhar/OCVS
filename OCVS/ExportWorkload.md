@@ -4,8 +4,7 @@
 
 In this lab, we will export the on-premises workload into a format that can be imported into OCVS. For this, we will simulate an on-premise environment using VMWare Workstation. The VMWare Workstation can be easily installed on a laptop or another virtual machine. After that, we will configure an e-Commerce application on the infrastructure and export the workload in the form of a .ovf file and upload it to a bucket in Object Storage. This .ovf file be downloaded and imported into OCVS in the next lab. 
 
-**This lab is optional. Should you wish to skip this part, please download the VMDK file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkX
-IkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk).**
+**This lab is optional. Should you wish to skip this part, please download the VMDK file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkXIkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk).**
 
 ## Objectives
 - Export a VM as a .ovf file from on-premises VMWare infrastructure.
