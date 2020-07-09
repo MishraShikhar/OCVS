@@ -4,7 +4,7 @@
 
 In this lab, we will export the on-premises workload into a format that can be imported into OCVS. For this, we will simulate an on-premise environment using VMWare Workstation. The VMWare Workstation can be easily installed on a laptop or another virtual machine. After that, we will configure an e-Commerce application on the infrastructure and export the workload in the form of a .ovf file and upload it to a bucket in Object Storage. This .ovf file be downloaded and imported into OCVS in the next lab. 
 
-**This lab is optional. Should you wish to skip this part, please download the VMDK file contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/JPnFpTHgLX9vNwc6KtkXIkXAFFM65sOHfzooM8AJfDk/n/orasenatdecanational01/b/osCommerceTest/o/osCommerceDemo-disk001.vmdk).**
+**This lab is optional. Should you wish to skip this part, please download the zipped VMDK files contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/H3bRU5d3eP76yjLry558pwp9tmpcbLxbNdyxWo_VRWI/n/orasenatdpltintegration02/b/OCVSDemo/o/oscommerce.zip).**
 
 ## Objectives
 - Export a VM as a .ovf file from on-premises VMWare infrastructure.
@@ -12,7 +12,7 @@ In this lab, we will export the on-premises workload into a format that can be i
 
 ## Required Artifacts
 - [VMWare Workstation](https://www.vmware.com/go/getworkstation-win) on a Windows Laptop or [VMWare Fusion](https://www.vmware.com/go/getfusion) for Mac
-- Pre-built Ubuntu [image](link)
+- Pre-built Ubuntu [image](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sOmBe0So96uG2zYVIjywBSXp_wSgfolSvYj3_0JJF8M/n/orasenatdhubsred01/b/oscommerce-workshop/o/ubuntu.zip)
 - An Object Storage bucket with the required IAM privileges.
 
 ## Additional Resources

@@ -16,8 +16,8 @@ As a System Administrator or application developer:
 ## Required Artifacts
 
 - An Oracle Cloud Infrastructure account with service limit of atleast **3 Bare Metal DenselIO 2.52** compute shape in the same availability domain.
-- A **virtual cloud network** with a recommended CIDR size of **/22** or greater. 
-- A private subnet within the aforementioned vcn with a **/24** CIDR size for the workloads.
+- A **virtual cloud network** with a recommended CIDR size of **/20** or greater.
+- A non overlapping CIDR for VMWare workload, from the VCN CIDR.
 
 ## Steps
 
