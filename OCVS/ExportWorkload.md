@@ -12,7 +12,6 @@ In this lab, we will export the on-premises workload into a format that can be i
 
 ## Required Artifacts
 - [VMWare Workstation](https://www.vmware.com/go/getworkstation-win) on a Windows Laptop or [VMWare Fusion](https://www.vmware.com/go/getfusion) for Mac
-- Pre-built Ubuntu [image](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sOmBe0So96uG2zYVIjywBSXp_wSgfolSvYj3_0JJF8M/n/orasenatdhubsred01/b/oscommerce-workshop/o/ubuntu.zip)
 - An Object Storage bucket with the required IAM privileges.
 
 ## Additional Resources
@@ -29,7 +28,7 @@ This section outlines the installation of VMWare workstation and how to configur
 
 - Download and Install the latest VMWare for your platform ([Windows](https://www.vmware.com/go/getworkstation-win), [Mac OS](https://www.vmware.com/go/getfusion))
 
-- Download the [Ubuntu.ovf](Link) file. 
+- Download the [Ubuntu.ovf](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sOmBe0So96uG2zYVIjywBSXp_wSgfolSvYj3_0JJF8M/n/orasenatdhubsred01/b/oscommerce-workshop/o/ubuntu.zip) file. 
 
 - Open VMware Workstation and click on **File** and then **Open**. Select the **ubuntu.ovf** file that you downloaded, earlier.
 
@@ -177,13 +176,13 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
 - Change permissions on the files and give apache2 ownership of the root directory. Restart Apache:
 
-    sudo chmod 777 /var/www/html/catalog/includes/configure.php
+        sudo chmod 777 /var/www/html/catalog/includes/configure.php
     
-    sudo chmod 777 /var/www/html/catalog/admin/includes/configure.php
+        sudo chmod 777 /var/www/html/catalog/admin/includes/configure.php
     
-    sudo chown www-data:www-data -R /var/www/html/
+        sudo chown www-data:www-data -R /var/www/html/
     
-    sudo service apache2 start
+        sudo service apache2 start
 
 Open firefox and navigate to localhost/catalog. You should see the setup wizard; all steps in this installation need to be completed before we can move on. Follow the screenshots below to make sure that the settings are consistent.
 
