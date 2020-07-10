@@ -126,7 +126,7 @@ Since the SDDC is sittng in a private subnet, to allow it to communicate with th
 
 We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. Once the SDDC is up and running, we will need this jump server to access the SDDC.
 
-- From the **Resources** section on the left side of the page, get to subnets and click on **Create Subnet**.
+- From the **Resources** section on the left side of the page, get to VCN and subnets and click on **Create Subnet**.
     
     ![](./images/Lab100/100_11_3_01.png " ")
     ![](./images/Lab100/100_11_3_02.png " ")
@@ -135,12 +135,12 @@ We will now create a public subnet in the same VCN, as the SDDC, to host a Basti
 
 - Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
 
-    ![](./images/Lab100/100_11_2.png " ")
+    ![](./images/Lab100/100_11_3_2.png " ")
 
 - Click on the **Create Subnet** button. You should now see the public subnet created.
 
-    ![](./images/Lab100/100_11_3.png " ")
-    ![](./images/Lab100/100_11_4.png " ")
+    ![](./images/Lab100/100_11_3_3.png " ")
+    ![](./images/Lab100/100_11_3_4.png " ")
 
 We still have to update the route rules for this subnet, but we will do that while we wait for our Bastion host to come up. So, let us go and create the Bastion Host. We will return to this public subnet, in a bit.
 
@@ -187,11 +187,11 @@ Upon creation, the Bastion Server will have to communicate with the internet. Fo
 
 -  Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
 
-    ![](./images/Lab100/100_11_0.png " ")
+    ![](./images/Lab100/100_11_3_01.png " ")
 
 - Select your VCN from the given list. 
 
-    ![](./images/Lab100/100_11_000.png " ")
+    ![](./images/Lab100/100_11_3_03.png " ")
 
 - From the **Resources** section on the left side of the page, select **Internet Gateway**.
 
@@ -233,12 +233,6 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
     ![](./images/Lab100/100_11_13.png " ")
 
-- Select **Add Additional Route Rule** to add another rule. This time set the **Target Type** as **Private IP**, **Destination CIDR** as 172.0.0.0/24 and **Target** will be the NSX EDge IP Adress that we had copied earlier. After this, click on the **Add Route Rules**.
-
-    ![](./images/Lab100/100_11_14.png " ")
-
-    ![](./images/Lab100/100_11_15.png " ")
-
 ### Step 8: Update security list to allow Remote Desktop connection
 
 - We will now open port 3389 in the Security List attached to the public subnet. Go back to the previous page and select **Security Lists** from the Resources panel.
@@ -269,16 +263,37 @@ The Bastion host is now ready to accept remote desktop connections.
 
 - Navigate back to the SDDC. Clcik the hanburger icon, and under **Solutions and Platform**, click on **VMware Solution**.
 
+    ![](./images/Lab100/100_11_40_1.png " ")
+
 - Select the SDDC you provisioned
 
 - On your SDDC page click the box that reads **Configure connectivity to VCN resources** 
 
-    ![](./images/Lab100/100_11_40_1.png " ")
+    ![](./images/Lab100/100_40_2.png " ")
 
-- A configuration page opens up, here click on select Subnets andshows the resources it will create within the VCN, a NAT Gateway, route table with a route rule for NAT gateway and a network security group allowing egress traffic for all protocols.
+- A configuration page opens up, here click on select Subnets
 
+    ![](./images/Lab100/100_40_3.png " ")
 
-    ![](./images/Lab100/100_1.png " ")
+- Select the public subnet you created in the previous step.
+
+    ![](./images/Lab100/100_40_4.png " ")
+
+- It gets added to the subnets list. Now click **Next**
+
+    ![](./images/Lab100/100_40_5.png " ")
+
+- review the resources that will get created withion the VCN and click **Apply Configuration**
+
+    ![](./images/Lab100/100_40_6.png " ")
+
+    ![](./images/Lab100/100_40_7.png " ")
+
+- You get a confirmation for all the configuration changes that gets applied
+
+    ![](./images/Lab100/100_40_8.png " ")
+
+    ![](./images/Lab100/100_40_9.png " ")
 
 
 ### Step 10: Access the SDDC using the Bastion 
