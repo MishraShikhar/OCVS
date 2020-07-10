@@ -128,7 +128,10 @@ We will now create a public subnet in the same VCN, as the SDDC, to host a Basti
 
 - From the **Resources** section on the left side of the page, get to subnets and click on **Create Subnet**.
     
-    ![](./images/Lab100/100_11_1.png " ")
+    ![](./images/Lab100/100_11_3_01.png " ")
+    ![](./images/Lab100/100_11_3_02.png " ")
+    ![](./images/Lab100/100_11_3_03.png " ")
+    ![](./images/Lab100/100_11_3_1.png " ")
 
 - Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
 
