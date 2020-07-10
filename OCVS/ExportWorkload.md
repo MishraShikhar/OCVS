@@ -130,7 +130,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
         
         FLUSH PRIVILEGES;
 
-    Exit mysql with ctrl + c;
+    Exit mysql with command exit;
 
 - Configure Ubuntu to accept SSH Connections
 
@@ -154,7 +154,9 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
         sudo iptables -L
         
-        sudo invoke-rc.d iptables-persistent save
+        sudo netfilter-persistent save
+
+        sudo netfilter-persistent reload    
 
     ![](./images/Lab200/200_7.png " ")
 

@@ -92,73 +92,35 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/Lab400/400_21.png " ")
 
-### STEP 2: Create a **Network Address Translation (NAT) Gateway**
+### STEP 2: Configure connectivity to the internet through NAT Gateway
 
 Since the SDDC is sittng in a private subnet, to allow it to communicate with the internet, we will need a NAT Gateway. 
 
--  Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
+-  On your SDDC page click the box that reads **Configure connectivity to the internet through NAT Gateway** 
 
     ![](./images/Lab100/100_11_0.png " ")
 
-- Select your VCN from the given list. In our case, the following VCN shows up. You could be seeing a longer list.
+- A configuration page opens up on the right, shows the resources it will create within the VCN, a NAT Gateway, route table with a route rule for NAT gateway and a network security group allowing egress traffic for all protocols.
 
     ![](./images/Lab100/100_11_000.png " ")
 
-**Note**: At any point of time, during this workshop, if you find that a resource has gone missing, then check if you are in the right region and/or in the right compartment.
+    ![](./images/Lab100/100_11_00.png " ")
 
-![](./images/Lab100/100_11_00.png " ")
+- Click **Apply configuration**, you get a confirmation that the changes have been applied. Click **Close**
 
-- From the **Resources** section on the left side of the page, select **NAT Gateway**.
+    ![](./images/Lab100/100_11_1.png " ")
 
-    ![](./images/Lab100/100_11_5.png " ")
-    
-- Click on the **Create NAT Gateway** button.
+### STEP 3: Configure connectivity to Oracle Services Network
 
-    ![](./images/Lab400/400_6.png " ")
+- To get access to Oracle service via the service gateway SGW, click the box **Configure connectivity to Oracle Services Network**
 
-- Provide a name and compartment for the NAT gateway and hit the **Create NAT Gateway** button on the iframe.
-    
-    ![](./images/Lab400/400_9.png " ")
+    ![](./images/Lab100/100_11_2.png " ")
 
-    ![](./images/Lab400/400_8.png " ")
+- A configuration page opens up on the right with SDDC workload CIDR details, click Next.
 
-You have successfully created a NAT Gateway. Now, let us attach it to the private subnet where your SDDC resides.
-    
-### STEP 3: Attach the **NAT Gateway** to the SDDC subnet
+    ![](./images/Lab100/100_11_3_0.png " ")
 
-You will now modify the route rules for the SDDC subnet to direct the traffic through the NAT Gateway that you just created.
-
-- From the **Resources** section on the left side of the web page, select **Subnets**.
-
-    ![](./images/Lab400/400_7.png " ")
-
-- From the list, select the private subnet.
-    
-    ![](./images/Lab400/400_2.png " ")
-
-- Click on the link to the associated **Route Table** in the panel at the top.
-
-    ![](./images/Lab400/400_3.png " ")
-
-- Click on the **Add Route Rules** button.
-
-    ![](./images/Lab400/400_13.png " ")
-
-- Select the **Target Type** as **NAT Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the NAT Gateway that you just created as the Target NAT Gateway. 
-
-    ![](./images/Lab400/400_14.png " ")
-
-    ![](./images/Lab400/400_15.png " ")
-
-    ![](./images/Lab400/400_16.png " ")
-
-- Select **Add Additional Route Rule** to add another rule. This time set the **Target Type** as **Private IP**, **Destination CIDR** as 172.0.0.0/24 and **Target** will be the NSX EDge IP Adress that we had copied earlier. After this, click on the **Add Route Rules**.
-
-    ![](./images/Lab400/400_17.png " ")
-
-    ![](./images/Lab400/400_18.png " ")
-
-    ![](./images/Lab400/400_5.png " ")
+- Review the resources that will be created within the VCN, a SGW, route table with a route rule for service gateway and a network security group allowing all OCI services in the region. Click **Apply Configuration**, you get a confirmation that the changes have been applied, click **Close**
 
 ### STEP 4: Create a Public Subnet to host the Bastion server
 
@@ -300,7 +262,23 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
 The Bastion host is now ready to accept remote desktop connections. 
 
-### Step 9: Access the SDDC using the Bastion 
+### Step 9: Configure Connectivity from VMWare private subnet to  our public subnet
+
+- Navigate back to the SDDC. Clcik the hanburger icon, and under **Solutions and Platform**, click on **VMware Solution**.
+
+- Select the SDDC you provisioned
+
+- On your SDDC page click the box that reads **Configure connectivity to VCN resources** 
+
+    ![](./images/Lab100/100_11_40_1.png " ")
+
+- A configuration page opens up, here click on select Subnets andshows the resources it will create within the VCN, a NAT Gateway, route table with a route rule for NAT gateway and a network security group allowing egress traffic for all protocols.
+
+
+    ![](./images/Lab100/100_1.png " ")
+
+
+### Step 10: Access the SDDC using the Bastion 
 
 - Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
 
