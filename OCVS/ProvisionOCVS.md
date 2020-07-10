@@ -283,7 +283,7 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/Lab100/100_40_5.png " ")
 
-- review the resources that will get created withion the VCN and click **Apply Configuration**
+- Review the resources that will get created withion the VCN and click **Apply Configuration**
 
     ![](./images/Lab100/100_40_6.png " ")
 
