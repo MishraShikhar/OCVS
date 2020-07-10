@@ -261,9 +261,9 @@ The Bastion host is now ready to accept remote desktop connections.
 
 ### Step 9: Configure Connectivity from VMWare private subnet to  our public subnet
 
-- Navigate back to the SDDC. Clcik the hanburger icon, and under **Solutions and Platform**, click on **VMware Solution**.
+- Navigate back to the SDDC. Clcik the hamburger icon, and under **Solutions and Platform**, click on **VMware Solution**.
 
-    ![](./images/Lab100/100_11_40_1.png " ")
+    ![](./images/Lab100/100_1.png " ")
 
 - Select the SDDC you provisioned
 
