@@ -82,4 +82,6 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
 - Enable the network by toggling the same button  **Enable Networking** again.
 
+    ![](./images/Lab300/300_24.png " ")
+
 - Visit some website on the browser and the confirm that you have internet access.

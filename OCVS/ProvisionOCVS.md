@@ -277,11 +277,11 @@ The Bastion host is now ready to accept remote desktop connections.
 
 - Select the private SDDC subnet and the public subnet you created in the previous step.
 
-    ![](./images/Lab100/100_40_4.png " ")
+    ![](./images/Lab100/100_40_5.png " ")
 
 - It gets added to the subnets list. Now click **Next**
 
-    ![](./images/Lab100/100_40_5.png " ")
+    ![](./images/Lab100/100_40_4.png " ")
 
 - Review the resources that will get created withion the VCN and click **Apply Configuration**
 
