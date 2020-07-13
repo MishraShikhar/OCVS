@@ -74,7 +74,7 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
 - Open the **Wired Connections 1** and goto **IPv4 Settings**. Enter the google DNS server **8.8.8.8** in the **Additional DNS Servers** field and click **Save**
 
-    ![](./images/Lab300/300_22.png " ")
+    ![](./images/Lab300/300_22.png " ") 
 
 - Click the networking Icon again and disable network by toggling the **Enable Networking** settings.
 
