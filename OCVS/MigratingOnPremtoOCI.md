@@ -66,5 +66,22 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
      ![](./images/Lab300/300_13.png " ")
 
- 
+### STEP 2: Enable Internet on the VM
 
+- The VM does not have DNS settings. To add the DNS server click the network icon on the right top corner and click **Edit Connections**
+
+    ![](./images/Lab300/300_21.png " ")
+
+- Open the **Wired Connections 1** and goto **IPv4 Settings**. Enter the google DNS server **8.8.8.8** in the **Additional DNS Servers** field and click **Save**
+
+    ![](./images/Lab300/300_22.png " ") 
+
+- Click the networking Icon again and disable network by toggling the **Enable Networking** settings.
+
+    ![](./images/Lab300/300_23.png " ")
+
+- Enable the network by toggling the same button  **Enable Networking** again.
+
+    ![](./images/Lab300/300_24.png " ")
+
+- Visit some website on the browser and the confirm that you have internet access.

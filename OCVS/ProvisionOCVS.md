@@ -271,7 +271,7 @@ The Bastion host is now ready to accept remote desktop connections.
 
 - Select the SDDC you provisioned
 
-- On your SDDC page click the box that reads **Configure connectivity to VCN resources** 
+- On your SDDC page click the box that reads **Configure connectivity to VCN resources**
 
     ![](./images/Lab100/100_40_2.png " ")
 
@@ -279,13 +279,13 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/Lab100/100_40_3.png " ")
 
-- Select the public subnet you created in the previous step.
+- Select the private SDDC subnet and the public subnet you created in the previous step.
 
-    ![](./images/Lab100/100_40_4.png " ")
+    ![](./images/Lab100/100_40_5.png " ")
 
 - It gets added to the subnets list. Now click **Next**
 
-    ![](./images/Lab100/100_40_5.png " ")
+    ![](./images/Lab100/100_40_4.png " ")
 
 - Review the resources that will get created withion the VCN and click **Apply Configuration**
 
@@ -300,7 +300,7 @@ The Bastion host is now ready to accept remote desktop connections.
     ![](./images/Lab100/100_40_9.png " ")
 
 
-### Step 10: Access the SDDC using the Bastion 
+### Step 10: Access the SDDC using the Bastion
 
 - Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
 
@@ -310,7 +310,7 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/Lab100/100_19.png " ")
 
-- Copy the Public IP address, username and one-time password from the console of the VM. you will need them to establish remote desktop connectivity to the machine. 
+- Copy the Public IP address, username and one-time password from the console of the VM. you will need them to establish remote desktop connectivity to the machine.
 
     ![](./images/Lab100/100_20.png " ")
 
