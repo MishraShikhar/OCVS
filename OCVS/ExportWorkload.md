@@ -11,7 +11,7 @@ In this lab, we will export the on-premises workload into a format that can be i
 - Create an object storage bucket and upload the OVF file 
 
 ## Required Artifacts
-- [VMWare Workstation](https://www.vmware.com/go/getworkstation-win) on a Windows Laptop or [VMWare Fusion](https://www.vmware.com/go/getfusion) for Mac
+- [VMWare Workstation](https://www.vmware.com/go/getworkstation-win) on a Windows Laptop or [VMWare Fusion Pro](https://www.vmware.com/products/fusion/fusion-evaluation.html) for Mac
 - An Object Storage bucket with the required IAM privileges.
 
 ## Additional Resources
@@ -26,7 +26,11 @@ To learn more about the some of terms that we will be using, please follow the r
 
 This section outlines the installation of VMWare workstation and how to configure an e-Commerce application. 
 
-- Download and Install the latest VMWare for your platform ([Windows](https://www.vmware.com/go/getworkstation-win), [Mac OS](https://www.vmware.com/go/getfusion))
+- Download and Install the latest VMWare for your platform ([Windows](https://www.vmware.com/go/getworkstation-win), [Mac OS](https://www.vmware.com/products/fusion/fusion-evaluation.html))
+
+**Note**: Mac users need to download the Pro version from the page.
+
+![](./images/Lab200/200_0.png " ")
 
 - Download the [Ubuntu.ovf](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sOmBe0So96uG2zYVIjywBSXp_wSgfolSvYj3_0JJF8M/n/orasenatdhubsred01/b/oscommerce-workshop/o/ubuntu.zip) file. 
 

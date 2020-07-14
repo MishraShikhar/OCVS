@@ -62,7 +62,7 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
     ![](./images/Lab300/300_20.png " ")
     
-- Login to the VM with the password 'ubuntu'. Then, open Firefox and enter **localhost/catalog/index.php** and check for the oscommerce index page.
+- Login to the VM with the password 'oscommerce'. Then, open Firefox and enter **localhost/catalog/index.php** and check for the oscommerce index page.
 
      ![](./images/Lab300/300_13.png " ")
 

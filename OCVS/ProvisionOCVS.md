@@ -2,22 +2,24 @@
 
 ## Introduction
 
-This lab will get you started with the **Oracle Cloud VMware Service**. In this lab, you will provision a Oracle Cloud VMware Stack including the Oracle Cloud Infrastructure resources needed to host the solution.
+This lab will get you started with the Oracle Cloud VMware Service. In this lab, you will provision a Oracle Cloud VMware stack including the Oracle Cloud Infrastructure resources needed to host the solution.
 
-To log issues and view the Lab Guide source, go to the [github oracle](https://github.com/oracle/learning-library/issues/new) repository.
+<!---To log issues and view the Lab Guide source, go to the [github oracle](https://github.com/oracle/learning-library/issues/new) repository.-->
+
+To log issues, go to this [Confluence](https://confluence.oraclecorp.com/confluence/display/NOCSH/5.+Oracle+Cloud+VMware+Solution%3A+Training+Registration+and+Tracking) page.
 
 ## Objectives
 
-As a System Administrator or application developer:
+As a system administrator or application developer:
 
-- Rapidly deploy OCVS on Oracle cloud Infrastructure 
+- Rapidly deploy OCVS on Oracle Cloud Infrastructure  
 - Manage your VMware workloads
 
 ## Required Artifacts
 
-- An Oracle Cloud Infrastructure account with service limit of atleast **3 Bare Metal DenselIO 2.52** compute shape in the same availability domain.
-- A **virtual cloud network** with a recommended CIDR size of **/20** or greater.
-- A non overlapping CIDR for VMWare workload, from the VCN CIDR.
+- An OCI account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape in the same availability domain.
+- A virtual cloud network with a recommended CIDR size of /20.
+- A CIDR block for VMWare workload that does not overlap with the VCN CIDR.
 
 ## Steps
 
@@ -66,11 +68,13 @@ More information about Compartments and Policies is provided in the OCI Identity
     - **Create New Subnet and VLAN**: If the network resources for this SDDC have to be created, then this option has to be selected, otherwise enter the details of the subnet that you wish to use.
     - **SDDC Networks**: An available CIDR block in the selected VCN for the SDDC management CIDR. 
     
-    The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. As previously mentioned, the size must be at least /22 to allow the maximum of 64 ESXi hosts to each have their own IP address. Clicking on Check Availability will help ensure that the selected CIDR block is available in the VCN. 
+    The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. Since, each cluster can have a maximum of  64 ESXi hosts
+    
+     As previously mentioned, the size must be at least /22 to allow the maximum  to each have their own IP address. However, we recommend using a CIDR block of size /20. Clicking on Check Availability will help ensure that the selected CIDR block is available in the VCN. 
     
     ![](./images/Lab100/100_6.png " ")
 
-    - **SDDC Workload Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block.
+    - **SDDC Workload Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block. Here as well, we recommend using a CIDR block of size /24.
 
         ![](./images/Lab100/100_7.png " ")
 
@@ -259,7 +263,7 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
 The Bastion host is now ready to accept remote desktop connections. 
 
-### Step 9: Configure Connectivity from VMWare private subnet to  our public subnet
+### Step 9: Configure Connectivity from VMWare private subnet to our public subnet
 
 - Navigate back to the SDDC. Click the hamburger icon, and under **Solutions and Platform**, click on **VMware Solution**.
 

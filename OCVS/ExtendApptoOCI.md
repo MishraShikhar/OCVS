@@ -6,8 +6,8 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 
 ## Objectives
 - Setup a load balancer in front of your oscommerce application
-- Allow file sharing with other VMs outside of your SDDC through File Storage Service.
-- Enable REST end points for your application data using Oracle Integration Cloud
+- Provide Network file system capabilities through File Storage Service through a file storage mount point.
+<!-- Enable REST end points for your application data using Oracle Integration Cloud -->
 
 ## Required Artifacts
 - Required IAM permissions to create a File Storage Service instance, a Load Balancer and an Integration Cloud instance.
