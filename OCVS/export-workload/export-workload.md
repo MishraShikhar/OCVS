@@ -30,29 +30,29 @@ This section outlines the installation of VMWare workstation and how to configur
 
 **Note**: Mac users need to download the Pro version from the page.
 
-![](./images/Lab200/200_0.png " ")
+![](./images/200_0.png " ")
 
 - Download the [Ubuntu.ovf](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sOmBe0So96uG2zYVIjywBSXp_wSgfolSvYj3_0JJF8M/n/orasenatdhubsred01/b/oscommerce-workshop/o/ubuntu.zip) file. 
 
 - Open VMware Workstation and click on **File** and then **Open**. Select the **ubuntu.ovf** file that you downloaded, earlier.
 
-![](./images/Lab200/200_1.png " ")
+![](./images/200_1.png " ")
 
 - Provide a name for the virtual machine. We will be using the name **oscommerce** going forward. Also, specify a path for the VM. After that, click on **Import**.
 
-![](./images/Lab200/200_2.png " ")
+![](./images/200_2.png " ")
 
 - The VMware Workstation will read the settings from the ovf file, automatically and will take you to the settings for the VM. You should be able to see the following settings: 
 
-![](./images/Lab200/200_3.png " ")
+![](./images/200_3.png " ")
 
 - Once complete, you will see the osCommerceDemo VM listed. Hit the **Green Start Arrow** to boot up the VM. 
 
-![](./images/Lab200/200_4.png " ")
+![](./images/200_4.png " ")
 
 - You will see a login screen for the user **oscommerce**. Enter **oscommerce** in the password field. This completes the import of Ubuntu to VMware Workstation. 
 
-![](./images/Lab200/200_5.png " ")
+![](./images/200_5.png " ")
 
 We we will now use this virtual machine to host the osCommerce application.
  
@@ -96,7 +96,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
     Once Apache is installed, open your browser and navigate to localhost. You should be able to see the Apache2 placeholder page.
 
-    ![](./images/Lab200/200_6.png " ")
+    ![](./images/200_6.png " ")
 
 - Install PHP7
 
@@ -162,7 +162,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
         sudo netfilter-persistent reload    
 
-    ![](./images/Lab200/200_7.png " ")
+    ![](./images/200_7.png " ")
 
 ### STEP 3: Setup OSCommerce Application
 
@@ -194,15 +194,15 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 
 - Start the new installation and log in to the MySQL database using the credentials created earlier. If the values differ from those in the screenshot, please make sure that you enter the appropriate values.
 
-    ![](./images/Lab200/200_8.png " ")
+    ![](./images/200_8.png " ")
 
 - Set the location of the **www address** and **web server root directory**.
 
-    ![](./images/Lab200/200_9.png " ")
+    ![](./images/200_9.png " ")
 
 - Finally, set the OSCommerce online store settings info. We recommend that you make a note of the administrator username and password for later reference.
 
-    ![](./images/Lab200/200_10.png " ")
+    ![](./images/200_10.png " ")
 
 - After installation, remove the installation directory to protect your site and change the permissions on sensitive files:
 
@@ -216,44 +216,44 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 
 - Type **localhost/catalog/admin** in the address bar of the browser. You will need to log in with the admin username and password that you entered while setting up your osCommerce Online Store. 
 
-    ![](./images/Lab200/200_11.png " ")
+    ![](./images/200_11.png " ")
   
 - Create a New Manufacturer, Category & Product
 
     Click on **Catalog** in the menu on the left of the page and click on **Manufacturers**. On the next page, click on **Insert** and proceed to enter **Oracle** as the name of the manufacturer. Also, search for Oracle's pretty logo and download it to your machine. You will upload it to be used as the icon for the manufacturer. Once you do so, click **save** to  complete the listing. 
 
-    ![](./images/Lab200/200_12.png " ")
+    ![](./images/200_12.png " ")
 
     Go to **Categories/Products**, **Hardware** and then click on **New Category**. Name the category **Oracle Hardware**. Upload the same image of the Oracle logo or some other image and click **save**.
     
-    ![](./images/Lab200/200_13.png " ")
+    ![](./images/200_13.png " ")
 
     Now, go to **Categories/Products**, and select **Hardware**. Click on **Oracle Hardware**, then click on **New Product**. Fill out the fields using your imagination. Download another image for the product and attach it to the new product. In the example below, we selected **Oracle Exadata** as the product.
 
-    ![](./images/Lab200/200_14.png " ")
+    ![](./images/200_14.png " ")
 
     Navigate to **localhost/catalog/index.php**. Your final product would look something like this:
 
-    ![](./images/Lab200/200_15.png " ")
+    ![](./images/200_15.png " ")
 
 ### STEP 5: Export OVF File from VMWare Workstation to Object Storage
 
 - From VMware Workstation, shut down the osCommerce     virtual machine (quitting will also have the same result). Export the appliance from VMware Workstation. Set the file location for the .ovf export. Export should take about 5 minutes. While the export is in progress, let us proceed to the next steps.
     
-    ![](./images/Lab200/200_16.png " ")
-    ![](./images/Lab200/200_17.png " ")
+    ![](./images/200_16.png " ")
+    ![](./images/200_17.png " ")
 
 - Login to your Oracle Cloud tenancy. Click on the hamburger menu in the top left to open the navigation bar. Under **Core Infrastructure**, select **Object Storage**. 
 
-    ![](./images/Lab200/200_18.png " ")
+    ![](./images/200_18.png " ")
 
 - Choose the appropriate compartment from the drop down on the left side of the console.
 
-    ![](./images/Lab200/200_19.png " ")
+    ![](./images/200_19.png " ")
 
 - Click on **Create Bucket**.
 
-    ![](./images/Lab200/200_20.png " ")
+    ![](./images/200_20.png " ")
 
 - In the Create Bucket dialog box, specify the attributes of the bucket:
 
@@ -263,34 +263,34 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 
     Leave the other fields untouched and click the **Create Bucket** button.
 
-    ![](./images/Lab200/200_21.png " ")
+    ![](./images/200_21.png " ")
 
 - Once the bucket is created, select the bucket.
 
-    ![](./images/Lab200/200_22.png " ")
+    ![](./images/200_22.png " ")
 
 - Click on the **Edit Visibility** button.
 
-    ![](./images/Lab200/200_23.png " ")
+    ![](./images/200_23.png " ")
 
 - In the **Edit visibility** box, change the **VISIBILITY** to **PUBLIC** and save the changes.
     
-    ![](./images/Lab200/200_24.png " ")
+    ![](./images/200_24.png " ")
 
 - Create a zip file containing the 3 OVF files and upload the zipped file to the bucket that you just created.
 
-   ![](./images/Lab200/200_26.png " ")
+   ![](./images/200_26.png " ")
 
 - Select the bucket you created and then click the blue button within Objects named **Upload Objects**. 
 
-    ![](./images/Lab200/200_25.png " ")
+    ![](./images/200_25.png " ")
 
-    ![](./images/Lab200/200_27.png " ")
+    ![](./images/200_27.png " ")
 
 -  Click **Select Files** and then locate the zipped ovf file.
 
-    ![](./images/Lab200/200_28.png " ")
+    ![](./images/200_28.png " ")
 
 The OVF file has been successfully exported and uploaded to the object storage. Click the three dots next to the .zip file and select **Create Pre-Authenticated Request**. Leave the default selections and click **Create Pre-Authenticated Request**. Copy the pre-authenticated request URL. This will be used later,  when creating the custom image.
 
-![](./images/Lab200/200_29.png " ")
+![](./images/200_29.png " ")

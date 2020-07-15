@@ -3,32 +3,32 @@
       {
         "title": "Workshop README",
         "description": "Oracle Cloud VMware Solution Self-Guided Hands-On Workshop Overview",
-        "publisheddate": "6/10/2020",
+        "publisheddate": "7/15/2020",
         "filename": "README.md"
       },
       {
-        "title": "Lab 100: Provision Infrastructure for OCVS",
+        "title": "Lab 1: Provision Infrastructure for OCVS",
         "description": "Provisioning the infrastructure for the OCVS solution",
-        "publisheddate": "6/10/2020",
-        "filename": "ProvisionOCVS.md" 
+        "publisheddate": "7/15/2020",
+        "filename": "provision-ocvs/provision-ocvs.md" 
       },
       {
-        "title": "Lab 200: Generate Export of On-Premises workload",
+        "title": "Lab 2: Generate Export of On-Premises workload",
         "description": "Export on-premises workload in the form of a .ovf file",
-        "publisheddate": "6/20/2020",
-        "filename": "ExportWorkload.md"
+        "publisheddate": "7/15/2020",
+        "filename": "export-workload/export-workload.md"
       },
       {
-        "title": "Lab 300: Migrate On-Premises workload to OCVS",
+        "title": "Lab 3: Migrate On-Premises workload to OCVS",
         "description": "Migrate on-premises workload to OCVS",
-        "publisheddate": "6/20/2020",
-        "filename": "MigratingOnPremtoOCI.md"
+        "publisheddate": "7/15/2020",
+        "filename": "migrating-onprem-to-oci/migrating-onprem-to-oci.md"
       },
       {
-        "title": "Lab 400: Extend Application to OCI",
+        "title": "Lab 4: Extend Application to OCI",
         "description": "Extend the solution to use OCI services",
-        "publisheddate": "6/20/2020",
-        "filename": "ExtendApptoOCI.md"
+        "publisheddate": "7/15/2020",
+        "filename": "extend-app-to-oci/extend-app-to-oci.md"
       }
     ]
 }
