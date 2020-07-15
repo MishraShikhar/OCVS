@@ -11,8 +11,6 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 1. Access to the Object storage bucket used to store the exported workload from Lab 200.
 2. The deployed OCVS environment from Lab 100.
 
-## Steps
-
 ## STEP 1: Import the osCommerce OVF into Oracle Cloud VMware Service
 
 1. Use the RDP client to connect to the bastion host. Using the pre-authenticated request URL from Lab 200, download the zipped ovf file.  Unzip to extract the 3 ovf files on your computer.

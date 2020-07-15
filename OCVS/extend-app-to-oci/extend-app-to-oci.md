@@ -12,9 +12,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 ## Required Artifacts
 1. Required IAM permissions to create a File Storage Service instance, a Load Balancer and an Integration Cloud instance.
 
-## Use Cases
-
-### Use Case 1: Set up Load Balancer in front of osCommerce Application
+## Use Case 1: Set up Load Balancer in front of osCommerce Application
 
 1. Create Load Balancer
 
@@ -98,7 +96,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 
 2. Your Load Balancer is now working on top of your application. You can use the public IP of the Load Balancer to access the Apache2's default homepage for Ubuntu. You can access the oscommcerce application by typing the <public IP>/catalog URL.
 
-### Use Case 2: Create a File Storage Network accessible inside the SDDC and in OCI
+## Use Case 2: Create a File Storage Network accessible inside the SDDC and in OCI
 
 1. Create a file system.
 

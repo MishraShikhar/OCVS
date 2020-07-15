@@ -21,8 +21,6 @@ As a system administrator or application developer:
 2. A virtual cloud network with a recommended CIDR size of /20.
 3. A CIDR block for VMWare workload that does not overlap with the VCN CIDR.
 
-## STEPS
-
 ## STEP 1: Create an SDDC
 
 1.  Sign in to the OCI console and open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.

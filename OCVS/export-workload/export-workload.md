@@ -19,9 +19,6 @@ To learn more about the some of terms that we will be using, please follow the r
 1. [Object storage](https://docs.cloud.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm)
 2. [ovf format](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-AE61948B-C2EE-436E-BAFB-3C7209088552.html) 
 
-
-## Steps
-
 ## STEP 1: Download VMware Workstation and Import Ubuntu Instance
 
 This section outlines the installation of VMWare workstation and how to configure an e-Commerce application. 
