@@ -12,28 +12,28 @@ To log issues, go to this [Confluence](https://confluence.oraclecorp.com/conflue
 
 As a system administrator or application developer:
 
-- Rapidly deploy OCVS on Oracle Cloud Infrastructure  
-- Manage your VMware workloads
+1. Rapidly deploy OCVS on Oracle Cloud Infrastructure  
+2. Manage your VMware workloads
 
 ## Required Artifacts
 
-- An OCI account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape in the same availability domain.
-- A virtual cloud network with a recommended CIDR size of /20.
-- A CIDR block for VMWare workload that does not overlap with the VCN CIDR.
+1. An OCI account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape in the same availability domain.
+2. A virtual cloud network with a recommended CIDR size of /20.
+3. A CIDR block for VMWare workload that does not overlap with the VCN CIDR.
 
 ## Steps
 
 ### STEP 1: Create an SDDC
 
--  Sign in to the OCI console and open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
+1.  Sign in to the OCI console and open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
--  Under **Solutions and Platform**, click on **VMware Solution**.
+2.  Under **Solutions and Platform**, click on **VMware Solution**.
 
     ![](./images/100_1.png " ")
 
-- From the **Compartment** drop down on the left side of the screen, select the compartment where you wish to deploy the solution. 
+3. From the **Compartment** drop down on the left side of the screen, select the compartment where you wish to deploy the solution. 
 
-- Click on the **Create SDDC** button.
+4. Click on the **Create SDDC** button.
 
     ![](./images/100_2.png " ")
 
@@ -43,30 +43,30 @@ As a system administrator or application developer:
 
 More information about Compartments and Policies is provided in the OCI Identity and Access Management documentation [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm?tocpath=Services%7CIAM%7C_____13).
 
--  On the basic information page, provide the following details:-
-    - **SDDC Name**: A descriptive name for the SDDC, such as 'SDDCVMWare'. This name has to be unique among all SDDCs across all compartments in the region. The name must have 1 to 16 characters, must start with a letter, can contain only alphanumeric characters and hyphens (-), and is not case-sensitive.
-    - **SDDC Compartment**: The deployment compartment. The destination compartment can be changed from here, as well.
-    - **VMware Software Version**: The version of bundled VMware software that you want to install on the ESXi hosts. The software bundle includes vSphere, vSAN, and NSX components. For the purpose of this lab, please select version **6.7 update 3**.
-    - **Number of ESXi Hosts**: The initial number of ESXi hosts to create in the SDDC. This number has to be at least 3 and can be at most 64. Please choose **3** for this lab.
+5.  On the basic information page, provide the following details:-
+    1. **SDDC Name**: A descriptive name for the SDDC, such as 'SDDCVMWare'. This name has to be unique among all SDDCs across all compartments in the region. The name must have 1 to 16 characters, must start with a letter, can contain only alphanumeric characters and hyphens (-), and is not case-sensitive.
+    2. **SDDC Compartment**: The deployment compartment. The destination compartment can be changed from here, as well.
+    3. **VMware Software Version**: The version of bundled VMware software that you want to install on the ESXi hosts. The software bundle includes vSphere, vSAN, and NSX components. For the purpose of this lab, please select version **6.7 update 3**.
+    4. **Number of ESXi Hosts**: The initial number of ESXi hosts to create in the SDDC. This number has to be at least 3 and can be at most 64. Please choose **3** for this lab.
     
     ![](./images/100_4.png " ")
 
     **Note:** The Oracle Cloud VMware Solution supports addition and deletion of ESXi hosts in the SDDC. 
     
-    - **Prefix for ESXi Hosts**: (Optional) The optional prefix that you would like to use for the names of the ESXi hosts for identification. This string follows the same rules, as the SDDC name.
-    - **SSH Key**: The public key portion of the SSH key that will be used for remote connections to the ESXi hosts. 
-    - **Availability Domain**: The availability domain in which the SDDC and the ESXi hosts will be created. The management subnet and VLANs for this SDDC must be in the same availability domain. 
+    5. **Prefix for ESXi Hosts**: (Optional) The optional prefix that you would like to use for the names of the ESXi hosts for identification. This string follows the same rules, as the SDDC name.
+    6. **SSH Key**: The public key portion of the SSH key that will be used for remote connections to the ESXi hosts. 
+    7. **Availability Domain**: The availability domain in which the SDDC and the ESXi hosts will be created. The management subnet and VLANs for this SDDC must be in the same availability domain. 
     
     **Note**: ESXi hosts are uniformly distributed across fault domains within the availability domain. 
 
-- Click Next.
+6. Click Next.
 
     ![](./images/100_5.png " ")
 
-- On the SDDC Networks page, provide the following values:- 
-    - **Virtual Cloud Network (VCN)**: The VCN represents the underlying data center network that hosts the SDDC. The VCN can be in a different compartment than the SDDC and its ESXi hosts. 
-    - **Create New Subnet and VLAN**: If the network resources for this SDDC have to be created, then this option has to be selected, otherwise enter the details of the subnet that you wish to use.
-    - **SDDC Networks**: An available CIDR block in the selected VCN for the SDDC management CIDR. 
+7. On the SDDC Networks page, provide the following values:- 
+    1. **Virtual Cloud Network (VCN)**: The VCN represents the underlying data center network that hosts the SDDC. The VCN can be in a different compartment than the SDDC and its ESXi hosts. 
+    2. **Create New Subnet and VLAN**: If the network resources for this SDDC have to be created, then this option has to be selected, otherwise enter the details of the subnet that you wish to use.
+    3. **SDDC Networks**: An available CIDR block in the selected VCN for the SDDC management CIDR. 
     
     The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. Since, each cluster can have a maximum of  64 ESXi hosts
     
@@ -74,11 +74,11 @@ More information about Compartments and Policies is provided in the OCI Identity
     
     ![](./images/100_6.png " ")
 
-    - **SDDC Workload Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block. Here as well, we recommend using a CIDR block of size /24.
+    4. **SDDC Workload Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block. Here as well, we recommend using a CIDR block of size /24.
 
         ![](./images/100_7.png " ")
 
-    - Click on **Next** to review a summary of the settings for creating the SDDC. If everything is correct, click on **Create SDDC**.
+    5. Click on **Next** to review a summary of the settings for creating the SDDC. If everything is correct, click on **Create SDDC**.
 
         ![](./images/100_8.png " ")
 
@@ -86,7 +86,7 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/100_10.png " ")
 
-- To monitor the progress of the SDDC creation, click on the URL at the top of the summary page. The SDDC details page will open. 
+8. To monitor the progress of the SDDC creation, click on the URL at the top of the summary page. The SDDC details page will open. 
 
     ![](./images/100_11.png " ")
 
@@ -94,48 +94,48 @@ More information about Compartments and Policies is provided in the OCI Identity
 
 Since the SDDC is sittng in a private subnet, to allow it to communicate with the internet, we will need a NAT Gateway. 
 
--  On your SDDC page click the box that reads **Configure connectivity to the internet through NAT Gateway** 
+1. On your SDDC page click the box that reads **Configure connectivity to the internet through NAT Gateway** 
 
     ![](./images/100_11_0.png " ")
 
-- A configuration page opens up on the right, shows the resources it will create within the VCN, a NAT Gateway, route table with a route rule for NAT gateway and a network security group allowing egress traffic for all protocols.
+2. A configuration page opens up on the right, shows the resources it will create within the VCN, a NAT Gateway, route table with a route rule for NAT gateway and a network security group allowing egress traffic for all protocols.
 
     ![](./images/100_11_000.png " ")
 
     ![](./images/100_11_00.png " ")
 
-- Click **Apply configuration**, you get a confirmation that the changes have been applied. Click **Close**
+3. Click **Apply configuration**, you get a confirmation that the changes have been applied. Click **Close**
 
     ![](./images/100_11_1.png " ")
 
 ### STEP 3: Configure connectivity to Oracle Services Network
 
-- To get access to Oracle service via the service gateway SGW, click the box **Configure connectivity to Oracle Services Network**
+1. To get access to Oracle service via the service gateway SGW, click the box **Configure connectivity to Oracle Services Network**
 
     ![](./images/100_11_2.png " ")
 
-- A configuration page opens up on the right with SDDC workload CIDR details, click Next.
+2. A configuration page opens up on the right with SDDC workload CIDR details, click Next.
 
     ![](./images/100_11_3_0.png " ")
 
-- Review the resources that will be created within the VCN, a SGW, route table with a route rule for service gateway and a network security group allowing all OCI services in the region. Click **Apply Configuration**, you get a confirmation that the changes have been applied, click **Close**
+3. Review the resources that will be created within the VCN, a SGW, route table with a route rule for service gateway and a network security group allowing all OCI services in the region. Click **Apply Configuration**, you get a confirmation that the changes have been applied, click **Close**
 
 ### STEP 4: Create a Public Subnet to host the Bastion server
 
 We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. Once the SDDC is up and running, we will need this jump server to access the SDDC.
 
-- From the **Resources** section on the left side of the page, get to VCN and subnets and click on **Create Subnet**.
+1. From the **Resources** section on the left side of the page, get to VCN and subnets and click on **Create Subnet**.
     
     ![](./images/100_11_3_01.png " ")
     ![](./images/100_11_3_02.png " ")
     ![](./images/100_11_3_03.png " ")
     ![](./images/100_11_3_1.png " ")
 
-- Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
+2. Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
 
     ![](./images/100_11_3_2.png " ")
 
-- Click on the **Create Subnet** button. You should now see the public subnet created.
+3. Click on the **Create Subnet** button. You should now see the public subnet created.
 
     ![](./images/100_11_3_3.png " ")
     ![](./images/100_11_3_4.png " ")
@@ -144,38 +144,38 @@ We still have to update the route rules for this subnet, but we will do that whi
 
 ### STEP 5: Create a Bastion host to access your SDDC
 
-- Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
+1. Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
-- Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
+2. Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
 
     ![](./images/100_12.png " ")
 
-- On the instances page, click on the **Create Instance** button.
+3. On the instances page, click on the **Create Instance** button.
 
     ![](./images/100_13.png " ")
 
     ![](./images/100_14.png " ")
 
-- On the Create Compute Instance page, provide the following values:- 
-    - **Name**: The name of the virtual machine. 
-    - **Image**: The image/operating system to be used by the virtual machine. We want to use the Windows Server 2016 Standard Image for this machine. 
+4. On the Create Compute Instance page, provide the following values:- 
+    1. **Name**: The name of the virtual machine. 
+    2. **Image**: The image/operating system to be used by the virtual machine. We want to use the Windows Server 2016 Standard Image for this machine. 
     
     Clicking on the Change Image button will open a side panel. Scroll down to find the Windows Server 2016 Standard image.
 
     ![](./images/100_15.png " ")
 
-    - **Availability Domain (AD)** - The AD where the instance will be provisioned. 
-    - **Shape**: The shape (OCPU / memory) configuraion of the machine. Select a VM.Standard2.1 shape for your compute instance.
+    3. **Availability Domain (AD)** - The AD where the instance will be provisioned. 
+    4. **Shape**: The shape (OCPU / memory) configuraion of the machine. Select a VM.Standard2.1 shape for your compute instance.
 
     ![](./images/100_16.png " ")
 
     ![](./images/100_17.png " ")
 
-    - **VCN**: Select the same VCN that was used for creating the SDDC. Select a public subnet, so that a public IP is assigned to the Virtual Machine.
+    5. **VCN**: Select the same VCN that was used for creating the SDDC. Select a public subnet, so that a public IP is assigned to the Virtual Machine.
 
     ![](./images/100_18.png " ")
 
-- Click on the **Create** button. Proceed to Step 6, while we wait for the creation to complete.
+5. Click on the **Create** button. Proceed to Step 6, while we wait for the creation to complete.
 
 **Upon the creation of this instance, a user name and an initial password will be generated for you. They will be available on the details screen of the newly launched Instance. You must create a new password upon logging into the instance for the first time.**
 
@@ -183,23 +183,23 @@ We still have to update the route rules for this subnet, but we will do that whi
 
 Upon creation, the Bastion Server will have to communicate with the internet. For this, the public subnet will need an Internet Gateway.
 
--  Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
+1. Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
 
     ![](./images/100_11_3_01.png " ")
 
-- Select your VCN from the given list. 
+2. Select your VCN from the given list. 
 
     ![](./images/100_11_3_03.png " ")
 
-- From the **Resources** section on the left side of the page, select **Internet Gateway**.
+3. From the **Resources** section on the left side of the page, select **Internet Gateway**.
 
     ![](./images/100_11_6.png " ")
     
-- Click on the **Create Internet Gateway** button.
+4. Click on the **Create Internet Gateway** button.
 
     ![](./images/100_11_7.png " ")
 
-- Provide a name and compartment for the Internet gateway and hit the **Create Internet Gateway** button on the iframe.
+5. Provide a name and compartment for the Internet gateway and hit the **Create Internet Gateway** button on the iframe.
     
     ![](./images/100_11_8.png " ")
 
@@ -211,45 +211,45 @@ You have successfully created an Internet Gateway. Now, let us attach it to the 
 
 You will now modify the route rules for the public subnet to direct the traffic through the Internet Gateway that you just created.
 
-- From the **Resources** section on the left side of the web page, select **Subnets**.
+1. From the **Resources** section on the left side of the web page, select **Subnets**.
 
     ![](./images/100_11_9_1.png " ")
 
-- From the list, select the public subnet.
+2. From the list, select the public subnet.
     
     ![](./images/100_11_10.png " ")
 
-- Click on the link to the associated **Route Table** in the panel at the top.
+3. Click on the link to the associated **Route Table** in the panel at the top.
 
     ![](./images/100_11_11.png " ")
-1
-- Click on the **Add Route Rules** button.
+
+4. Click on the **Add Route Rules** button.
 
     ![](./images/100_11_12.png " ")
 
-- Select the **Target Type** as **Internet Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the Internet Gateway that you just created as the Target Internet Gateway. Thereafter, click on **Add Route Rules**. 
+5. Select the **Target Type** as **Internet Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the Internet Gateway that you just created as the Target Internet Gateway. Thereafter, click on **Add Route Rules**. 
 
     ![](./images/100_11_13.png " ")
 
 ### Step 8: Update security list to allow Remote Desktop connection
 
-- We will now open port 3389 in the Security List attached to the public subnet. Go back to the previous page and select **Security Lists** from the Resources panel.
+1. We will now open port 3389 in the Security List attached to the public subnet. Go back to the previous page and select **Security Lists** from the Resources panel.
 
     ![](./images/100_35.png " ")
 
-- Click on the Default Security List for the VCN, as it was the one that we attached to our public subnet.
+2. Click on the Default Security List for the VCN, as it was the one that we attached to our public subnet.
 
     ![](./images/100_36.png " ")
 
-- Click on the **Add Ingress Rules** button.
+3. Click on the **Add Ingress Rules** button.
 
     ![](./images/100_37.png " ")
 
-- Enter 0.0.0.0/0 as the **Source CIDR**, then click on the **IP Protocol** dropdown and select **RDP (TCP/3389)**. The **Destination Port Range** will get auto-populated with 3389.
+4. Enter 0.0.0.0/0 as the **Source CIDR**, then click on the **IP Protocol** dropdown and select **RDP (TCP/3389)**. The **Destination Port Range** will get auto-populated with 3389.
 
     ![](./images/100_38.png " ")
 
-- Click on **Add Ingress Rules**.
+5. Click on **Add Ingress Rules**.
 
     ![](./images/100_39.png " ")
 
@@ -259,35 +259,33 @@ The Bastion host is now ready to accept remote desktop connections.
 
 ### Step 9: Configure Connectivity from VMWare private subnet to our public subnet
 
-- Navigate back to the SDDC. Click the hamburger icon, and under **Solutions and Platform**, click on **VMware Solution**.
+1. Navigate back to the SDDC. Click the hamburger icon, and under **Solutions and Platform**, click on **VMware Solution** and select the SDDC that you provisioned.
 
     ![](./images/100_1.png " ")
 
-- Select the SDDC you provisioned
-
-- On your SDDC page click the box that reads **Configure connectivity to VCN resources**
+2. On the SDDC's page, click on the box that says **Configure connectivity to VCN resources**
 
     ![](./images/100_40_2.png " ")
 
-- A configuration page opens up, here click on select Subnets
+3. A configuration page will up. Here, click on **Select Subnets**.
 
     ![](./images/100_40_3.png " ")
 
-- Select the private SDDC subnet and the public subnet you created in the previous step.
+4. Select the private SDDC subnet and the public subnet you created in the previous step.
 
     ![](./images/100_40_5.png " ")
 
-- It gets added to the subnets list. Now click **Next**
+5. It gets added to the subnets list. Now click **Next**
 
     ![](./images/100_40_4.png " ")
 
-- Review the resources that will get created withion the VCN and click **Apply Configuration**
+6. Review the resources that will get created withion the VCN and click **Apply Configuration**
 
     ![](./images/100_40_6.png " ")
 
     ![](./images/100_40_7.png " ")
 
-- You get a confirmation for all the configuration changes that gets applied
+7. You get a confirmation for all the configuration changes that gets applied
 
     ![](./images/100_40_8.png " ")
 
@@ -296,19 +294,19 @@ The Bastion host is now ready to accept remote desktop connections.
 
 ### Step 10: Access the SDDC using the Bastion
 
-- Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
+1. Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
 
     ![](./images/100_12.png " ")
 
-- Once the VM is created, click on your instance for details.
+2. Once the VM is created, click on your instance for details.
 
     ![](./images/100_19.png " ")
 
-- Copy the Public IP address, username and one-time password from the console of the VM. you will need them to establish remote desktop connectivity to the machine.
+3. Copy the Public IP address, username and one-time password from the console of the VM. you will need them to establish remote desktop connectivity to the machine.
 
     ![](./images/100_20.png " ")
 
-- Connect to the instance using a Remote Desktop application of your choosing. The screenshots below show the process from a Mac based client.
+4. Connect to the instance using a Remote Desktop application of your choosing. The screenshots below show the process from a Mac based client.
 
     ![](./images/100_21.png " ")
 
@@ -318,38 +316,38 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/100_24.png " ")
 
-- When you login the first time, you will be asked to set a password. Reset your password and make a note of it.
+5. When you login the first time, you will be asked to set a password. Reset your password and make a note of it.
 
     ![](./images/100_25.png " ")
 
-- Now, we will goto the page of our SDDC and we will copy the vSphere Client vCenter URL.
+6. Now, we will goto the page of our SDDC and we will copy the vSphere Client vCenter URL.
 
     ![](./images/100_26.png " ")
 
-- Within your Windows machine that you have connected to using the RDP clinet, install the chrome browser and paste the **vSphere Client** link.
+7. Within your Windows machine that you have connected to using the RDP clinet, install the chrome browser and paste the **vSphere Client** link.
 
     ![](./images/100_27.png " ")
 
- You will get a warning for unprotected access. Click on **Advanced** and then select the **Proceed** option to continue.
+ 8. You will get a warning for unprotected access. Click on **Advanced** and then select the **Proceed** option to continue.
 
-![](./images/100_28.png " ")
+    ![](./images/100_28.png " ")
 
-![](./images/100_29.png " ")
+    ![](./images/100_29.png " ")
 
-- Click on the **Launch vSphere Client** button.
+9. Click on the **Launch vSphere Client** button.
 
     ![](./images/100_30.png " ")
 
-- Here you will need to enter the credential available on the SDDC's OCI console page. Go to the SDDC's console page and copy the **vCenter Username** and **vCenter Initial Password**.
+10. Here you will need to enter the credential available on the SDDC's OCI console page. Go to the SDDC's console page and copy the **vCenter Username** and **vCenter Initial Password**.
 
-![](./images/100_31.png " ")
+    ![](./images/100_31.png " ")
 
 **Note**: You will also get the NSX login information here.
 
-- You should now be able to access the vCenter. From here you can manage the VMware environment.
+11. You should now be able to access the vCenter. From here you can manage the VMware environment.
 
     ![](./images/100_33.png " ")
 
-- If you look at the panel on the left, you should be able to see the backend hosts that we used to provision our environment.
+12. If you look at the panel on the left, you should be able to see the backend hosts that we used to provision our environment.
 
     ![](./images/100_34.png " ")

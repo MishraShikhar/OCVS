@@ -1,4 +1,4 @@
-# Extending your Application deployed in OCVS with OCI Service
+# Extending your Application deployed in OCVS with OCI Services
 
 ## Introduction
 
