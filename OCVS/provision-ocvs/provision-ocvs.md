@@ -15,15 +15,15 @@ As a system administrator or application developer:
 1. Rapidly deploy OCVS on Oracle Cloud Infrastructure  
 2. Manage your VMware workloads
 
-## Required Artifacts
+## Prerequisites
 
-1. An OCI account with service limit of atleast 3 Bare Metal DenselIO 2.52 compute shape in the same availability domain.
+1. An OCI account with atleast 3 available Bare Metal DenselIO 2.52 compute shape in the same availability domain.
 2. A virtual cloud network with a recommended CIDR size of /20.
 3. A CIDR block for VMWare workload that does not overlap with the VCN CIDR.
 
-## Steps
+## STEPS
 
-### STEP 1: Create an SDDC
+## STEP 1: Create an SDDC
 
 1.  Sign in to the OCI console and open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
@@ -67,7 +67,8 @@ More information about Compartments and Policies is provided in the OCI Identity
     1. **Virtual Cloud Network (VCN)**: The VCN represents the underlying data center network that hosts the SDDC. The VCN can be in a different compartment than the SDDC and its ESXi hosts. 
     2. **Create New Subnet and VLAN**: If the network resources for this SDDC have to be created, then this option has to be selected, otherwise enter the details of the subnet that you wish to use.
     3. **SDDC Networks**: An available CIDR block in the selected VCN for the SDDC management CIDR. 
-    
+
+
     The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. Since, each cluster can have a maximum of  64 ESXi hosts
     
      As previously mentioned, the size must be at least /22 to allow the maximum  to each have their own IP address. However, we recommend using a CIDR block of size /20. Clicking on Check Availability will help ensure that the selected CIDR block is available in the VCN. 
@@ -90,7 +91,7 @@ More information about Compartments and Policies is provided in the OCI Identity
 
     ![](./images/100_11.png " ")
 
-### STEP 2: Configure connectivity to the internet through NAT Gateway
+## STEP 2: Configure connectivity to the internet through NAT Gateway
 
 Since the SDDC is sittng in a private subnet, to allow it to communicate with the internet, we will need a NAT Gateway. 
 
@@ -108,7 +109,7 @@ Since the SDDC is sittng in a private subnet, to allow it to communicate with th
 
     ![](./images/100_11_1.png " ")
 
-### STEP 3: Configure connectivity to Oracle Services Network
+## STEP 3: Configure connectivity to Oracle Services Network
 
 1. To get access to Oracle service via the service gateway SGW, click the box **Configure connectivity to Oracle Services Network**
 
@@ -120,7 +121,7 @@ Since the SDDC is sittng in a private subnet, to allow it to communicate with th
 
 3. Review the resources that will be created within the VCN, a SGW, route table with a route rule for service gateway and a network security group allowing all OCI services in the region. Click **Apply Configuration**, you get a confirmation that the changes have been applied, click **Close**
 
-### STEP 4: Create a Public Subnet to host the Bastion server
+## STEP 4: Create a Public Subnet to host the Bastion server
 
 We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. Once the SDDC is up and running, we will need this jump server to access the SDDC.
 
@@ -142,7 +143,7 @@ We will now create a public subnet in the same VCN, as the SDDC, to host a Basti
 
 We still have to update the route rules for this subnet, but we will do that while we wait for our Bastion host to come up. So, let us go and create the Bastion Host. We will return to this public subnet, in a bit.
 
-### STEP 5: Create a Bastion host to access your SDDC
+## STEP 5: Create a Bastion host to access your SDDC
 
 1. Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
@@ -179,7 +180,7 @@ We still have to update the route rules for this subnet, but we will do that whi
 
 **Upon the creation of this instance, a user name and an initial password will be generated for you. They will be available on the details screen of the newly launched Instance. You must create a new password upon logging into the instance for the first time.**
 
-### STEP 6: Create an **Internet Gateway**
+## STEP 6: Create an **Internet Gateway**
 
 Upon creation, the Bastion Server will have to communicate with the internet. For this, the public subnet will need an Internet Gateway.
 
@@ -207,7 +208,7 @@ Upon creation, the Bastion Server will have to communicate with the internet. Fo
 
 You have successfully created an Internet Gateway. Now, let us attach it to the public subnet where your Bastion resides.
     
-### STEP 7: Attach the **Internet Gateway** to the public subnet
+## STEP 7: Attach the **Internet Gateway** to the public subnet
 
 You will now modify the route rules for the public subnet to direct the traffic through the Internet Gateway that you just created.
 
@@ -231,7 +232,7 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
     ![](./images/100_11_13.png " ")
 
-### Step 8: Update security list to allow Remote Desktop connection
+## STEP 8: Update security list to allow Remote Desktop connection
 
 1. We will now open port 3389 in the Security List attached to the public subnet. Go back to the previous page and select **Security Lists** from the Resources panel.
 
@@ -257,7 +258,7 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
 The Bastion host is now ready to accept remote desktop connections. 
 
-### Step 9: Configure Connectivity from VMWare private subnet to our public subnet
+## STEP 9: Configure Connectivity from VMWare private subnet to our public subnet
 
 1. Navigate back to the SDDC. Click the hamburger icon, and under **Solutions and Platform**, click on **VMware Solution** and select the SDDC that you provisioned.
 
@@ -292,7 +293,7 @@ The Bastion host is now ready to accept remote desktop connections.
     ![](./images/100_40_9.png " ")
 
 
-### Step 10: Access the SDDC using the Bastion
+## STEP 10: Access the SDDC using the Bastion
 
 1. Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
 
