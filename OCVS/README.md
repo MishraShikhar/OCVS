@@ -39,4 +39,9 @@ Lab 4 - Extend/Integrate Apps running on OCVS to OCI native services.
 1. Setup a load balancer in front of your oscommerce application
 2. Provide network file system capabilities through File Storage Service (FSS) through a file storage mount point.
 
+## Acknowledgements
+
+Author - Maharshi Desai, Raj Hindocha, Shikhar Mishra, Srihareendra Bodduluri, Yash Lamba
+Last Updated By/Date - July 15, 2020.
+
 **You are all set. Let us begin!**
