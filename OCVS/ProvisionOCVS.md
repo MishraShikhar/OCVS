@@ -82,8 +82,6 @@ More information about Compartments and Policies is provided in the OCI Identity
 
         ![](./images/Lab100/100_8.png " ")
 
-        ![](./images/Lab100/100_9.png " ")
-
     The summary page tells you that the SDDC creation request has been initiated and shows the provisioning status of each resource. The SDDC should be up and running in, roughly, two and a half hours.
 
     ![](./images/Lab100/100_10.png " ")
@@ -91,10 +89,6 @@ More information about Compartments and Policies is provided in the OCI Identity
 - To monitor the progress of the SDDC creation, click on the URL at the top of the summary page. The SDDC details page will open. 
 
     ![](./images/Lab100/100_11.png " ")
-
-- Make note of your SDDC's NSX Edge IP Address. You will need it, later, to setup the route rule.
-
-    ![](./images/Lab400/400_21.png " ")
 
 ### STEP 2: Configure connectivity to the internet through NAT Gateway
 
@@ -219,7 +213,7 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
 - From the **Resources** section on the left side of the web page, select **Subnets**.
 
-    ![](./images/Lab400/400_7.png " ")
+    ![](./images/Lab100/100_11_9_1.png " ")
 
 - From the list, select the public subnet.
     
@@ -228,12 +222,12 @@ You will now modify the route rules for the public subnet to direct the traffic 
 - Click on the link to the associated **Route Table** in the panel at the top.
 
     ![](./images/Lab100/100_11_11.png " ")
-
+1
 - Click on the **Add Route Rules** button.
 
     ![](./images/Lab100/100_11_12.png " ")
 
-- Select the **Target Type** as **Internet Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the Internet Gateway that you just created as the Target Internet Gateway. 
+- Select the **Target Type** as **Internet Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the Internet Gateway that you just created as the Target Internet Gateway. Thereafter, click on **Add Route Rules**. 
 
     ![](./images/Lab100/100_11_13.png " ")
 

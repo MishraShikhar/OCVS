@@ -13,11 +13,11 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
 ### STEP 1: Import the osCommerce OVF into Oracle Cloud VMware Service
 
-- Use the pre-authenticated request URL from Lab 200 to download the zipped ovf file.  Unzip to extract the 3 ovf files on your computer.
+- Use the RDP client to connect to the bastion host. Using the pre-authenticated request URL from Lab 200, download the zipped ovf file.  Unzip to extract the 3 ovf files on your computer.
 
     ![](./images/Lab300/300_1.png " ")
 
-- Use the RDP client to connect to the bastion host. Now, login to the vSphere client of your OCVS platform and enter the credentials. You can get the vCenter server details from your OCVS page.
+-  Now, login to the vSphere client of your OCVS platform and enter the credentials. You can get the vCenter server details from your OCVS page.
 
     ![](./images/Lab300/300_2.png " ")
     
@@ -62,7 +62,7 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
     ![](./images/Lab300/300_20.png " ")
     
-- Login to the VM with the password 'oscommerce'. Then, open Firefox and enter **localhost/catalog/index.php** and check for the oscommerce index page.
+- Login to the VM using the password 'oscommerce'. Then, open Firefox, enter **localhost/catalog/index.php**, and check for the oscommerce index page.
 
      ![](./images/Lab300/300_13.png " ")
 
@@ -84,4 +84,4 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 
     ![](./images/Lab300/300_24.png " ")
 
-- Visit some website on the browser and the confirm that you have internet access.
+- Visit any website on the browser and confirm that you have internet access.
