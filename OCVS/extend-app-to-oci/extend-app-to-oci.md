@@ -144,7 +144,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
         ![](./images/400_57_1.png " ")
         ![](./images/400_57_2.png " ")
 
-    12. Now add the second set of ingress rules where the source CIDR range is the SDDC workload CIDR created.
+    12. Now add the second set of ingress rules where the source CIDR range is the SDDC workload CIDR.
     
         ![](./images/400_57_3.png " ")
         ![](./images/400_57_4.png " ")
