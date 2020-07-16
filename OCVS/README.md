@@ -20,28 +20,29 @@ These hands-on lab guides provide step-by-step directions to set up and use your
 4. A CIDR block for VMWare workload that does not overlap with the VCN CIDR.
 
 ## Labs
-Lab 1 - Provision the Infrastructure
+**Lab 1 - Provision the Infrastructure**
 
 1. Rapidly deploy OCVS on Oracle cloud Infrastructure 
 2. Manage your VMware workloads
 
-Lab 2 - Generate Export of On-Premises workload
+**Lab 2 - Generate Export of On-Premises workload**
 
 1. Export a virtual machine (VM) as a .ovf file from on-premises VMWare infrastructure.
 2. Create an object storage bucket and upload the OVF file 
 
-Lab 3 - Migrate the On-Premises workload to OCVS
+**Lab 3 - Migrate the On-Premises workload to OCVS**
 
 1. Import an OVF file and access the environment as part of the Oracle Cloud VMWare Service.
 
-Lab 4 - Extend/Integrate Apps running on OCVS to OCI native services.
+**Lab 4 - Extend/Integrate Apps running on OCVS to OCI native services**
 
 1. Setup a load balancer in front of your oscommerce application
 2. Provide network file system capabilities through File Storage Service (FSS) through a file storage mount point.
 
 ## Acknowledgements
 
-Author - Maharshi Desai, Raj Hindocha, Shikhar Mishra, Srihareendra Bodduluri, Yash Lamba
-Last Updated By/Date - July 15, 2020.
+**Author** - Maharshi Desai, Raj Hindocha, Shikhar Mishra, Srihareendra Bodduluri, Yash Lamba
+
+**Last Update** - July 15, 2020.
 
 **You are all set. Let us begin!**

@@ -10,7 +10,7 @@ In this lab, we will export the on-premises workload into a format that can be i
 1. Export a VM as a .ovf file from on-premises VMWare infrastructure.
 2. Create an object storage bucket and upload the OVF file 
 
-## Required Artifacts
+## Prerequisites
 1. [VMWare Workstation](https://www.vmware.com/go/getworkstation-win) on a Windows Laptop or [VMWare Fusion Pro](https://www.vmware.com/products/fusion/fusion-evaluation.html) for Mac
 2. An Object Storage bucket with the required IAM privileges.
 
@@ -27,7 +27,7 @@ This section outlines the installation of VMWare workstation and how to configur
 
 **Note**: Mac users need to download the Pro version from the page.
 
-    ![](./images/200_0.png " ")
+![](./images/200_0.png " ")
 
 2. Download the [Ubuntu.ovf](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sOmBe0So96uG2zYVIjywBSXp_wSgfolSvYj3_0JJF8M/n/orasenatdhubsred01/b/oscommerce-workshop/o/ubuntu.zip) file. 
 

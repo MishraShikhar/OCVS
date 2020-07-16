@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab will get you started with the Oracle Cloud VMware Service. In this lab, you will provision a Oracle Cloud VMware stack including the Oracle Cloud Infrastructure resources needed to host the solution.
+This lab will get you started with the Oracle Cloud VMware Service. In this lab, you will provision an Oracle Cloud VMware stack including the Oracle Cloud Infrastructure resources needed to host the solution.
 
 <!---To log issues and view the Lab Guide source, go to the [github oracle](https://github.com/oracle/learning-library/issues/new) repository.-->
 
@@ -29,9 +29,7 @@ As a system administrator or application developer:
 
     ![](./images/100_1.png " ")
 
-3. From the **Compartment** drop down on the left side of the screen, select the compartment where you wish to deploy the solution. 
-
-4. Click on the **Create SDDC** button.
+3. From the **Compartment** drop down on the left side of the screen, select the compartment where you wish to deploy the solution and click on the **Create SDDC** button.
 
     ![](./images/100_2.png " ")
 
@@ -41,39 +39,36 @@ As a system administrator or application developer:
 
 More information about Compartments and Policies is provided in the OCI Identity and Access Management documentation [here](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm?tocpath=Services%7CIAM%7C_____13).
 
-5.  On the basic information page, provide the following details:-
+4.  On the basic information page, provide the following details:-
     1. **SDDC Name**: A descriptive name for the SDDC, such as 'SDDCVMWare'. This name has to be unique among all SDDCs across all compartments in the region. The name must have 1 to 16 characters, must start with a letter, can contain only alphanumeric characters and hyphens (-), and is not case-sensitive.
-    2. **SDDC Compartment**: The deployment compartment. The destination compartment can be changed from here, as well.
+    2. **SDDC Compartment**: The deployment compartment. You can change the compartment from here, as well.
     3. **VMware Software Version**: The version of bundled VMware software that you want to install on the ESXi hosts. The software bundle includes vSphere, vSAN, and NSX components. For the purpose of this lab, please select version **6.7 update 3**.
-    4. **Number of ESXi Hosts**: The initial number of ESXi hosts to create in the SDDC. This number has to be at least 3 and can be at most 64. Please choose **3** for this lab.
+    4. **Number of ESXi Hosts**: The initial number of ESXi hosts to create in the SDDC. This number has to be at least 3 and can be at most 64. Please choose **3** for this workshop.
     
     ![](./images/100_4.png " ")
 
     **Note:** The Oracle Cloud VMware Solution supports addition and deletion of ESXi hosts in the SDDC. 
     
-    5. **Prefix for ESXi Hosts**: (Optional) The optional prefix that you would like to use for the names of the ESXi hosts for identification. This string follows the same rules, as the SDDC name.
+    5. **Prefix for ESXi Hosts**: (Optional) The prefix that you would like to use for the names of the ESXi hosts for identification. This string follows the same rules, as the SDDC name.
     6. **SSH Key**: The public key portion of the SSH key that will be used for remote connections to the ESXi hosts. 
     7. **Availability Domain**: The availability domain in which the SDDC and the ESXi hosts will be created. The management subnet and VLANs for this SDDC must be in the same availability domain. 
     
     **Note**: ESXi hosts are uniformly distributed across fault domains within the availability domain. 
 
-6. Click Next.
+5. Click **Next**. 
 
     ![](./images/100_5.png " ")
 
-7. On the SDDC Networks page, provide the following values:- 
-    1. **Virtual Cloud Network (VCN)**: The VCN represents the underlying data center network that hosts the SDDC. The VCN can be in a different compartment than the SDDC and its ESXi hosts. 
-    2. **Create New Subnet and VLAN**: If the network resources for this SDDC have to be created, then this option has to be selected, otherwise enter the details of the subnet that you wish to use.
+6. On the SDDC Networks page, provide the following values:- 
+    1. **Virtual Cloud Network (VCN)**: The VCN represents the underlying data center network that hosts the SDDC. The VCN can be in a different compartment from the SDDC and its ESXi hosts. 
+    2. **Create New Subnet and VLAN**: If the network resources for this SDDC have to be created, then this option has to be selected, otherwise enter the details of the subnet that you wish to use. For this workshop, we recommend using this option.
     3. **SDDC Networks**: An available CIDR block in the selected VCN for the SDDC management CIDR. 
 
-
-    The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. Since, each cluster can have a maximum of  64 ESXi hosts
-    
-     As previously mentioned, the size must be at least /22 to allow the maximum  to each have their own IP address. However, we recommend using a CIDR block of size /20. Clicking on Check Availability will help ensure that the selected CIDR block is available in the VCN. 
+    The SDDC Management CIDR is divided into eight segments, one for the provisioning subnet and seven for VLANs. Since each cluster can have a maximum of  64 ESXi hosts, the size of the CIDR must be at least /22 to allow each host to have their own IP address. However, we recommend using a CIDR block of size /20. Clicking on **Check Availability** will help to ensure that the selected CIDR block is available in the VCN. 
     
     ![](./images/100_6.png " ")
 
-    4. **SDDC Workload Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block. Here as well, we recommend using a CIDR block of size /24.
+    4. **SDDC Workload Network**: The SDDC workload CIDR block. This CIDR block provides the IP addresses in the SDDC to be used by the VMware VMs to run workloads. The value must be /30 or larger and must not overlap with the VCN CIDR block. We recommend using a CIDR block of size /24 for workload network.
 
         ![](./images/100_7.png " ")
 
@@ -81,11 +76,13 @@ More information about Compartments and Policies is provided in the OCI Identity
 
         ![](./images/100_8.png " ")
 
-    The summary page tells you that the SDDC creation request has been initiated and shows the provisioning status of each resource. The SDDC should be up and running in, roughly, two and a half hours.
+    The summary page tells you that the SDDC creation request has been initiated and shows the provisioning status of each resource. 
+    
+    The SDDC should be up and running in, roughly, two and a half hours.
 
     ![](./images/100_10.png " ")
 
-8. To monitor the progress of the SDDC creation, click on the URL at the top of the summary page. The SDDC details page will open. 
+7. To monitor the progress of the SDDC creation, click on the URL at the top of the summary page. The SDDC details page will open. 
 
     ![](./images/100_11.png " ")
 
@@ -93,31 +90,31 @@ More information about Compartments and Policies is provided in the OCI Identity
 
 Since the SDDC is sittng in a private subnet, to allow it to communicate with the internet, we will need a NAT Gateway. 
 
-1. On your SDDC page click the box that reads **Configure connectivity to the internet through NAT Gateway** 
+1. Once the SDDC is active, click on the box that says **Configure connectivity to the internet through NAT Gateway** 
 
     ![](./images/100_11_0.png " ")
 
-2. A configuration page opens up on the right, shows the resources it will create within the VCN, a NAT Gateway, route table with a route rule for NAT gateway and a network security group allowing egress traffic for all protocols.
+2. A configuration page will open up on the right showing the resources that will be created within the VCN. These would include: a NAT Gateway, a route table with a route rule for the NAT gateway and a network security group allowing egress traffic for all protocols.
 
     ![](./images/100_11_000.png " ")
 
     ![](./images/100_11_00.png " ")
 
-3. Click **Apply configuration**, you get a confirmation that the changes have been applied. Click **Close**
+3. Click on **Apply configuration**, to get a confirmation that the changes have been applied. Click on **Close**.
 
     ![](./images/100_11_1.png " ")
 
 ## STEP 3: Configure connectivity to Oracle Services Network
 
-1. To get access to Oracle service via the service gateway SGW, click the box **Configure connectivity to Oracle Services Network**
+1. To connect to the Oracle services network we would need a service gateway. We will create one using the **Configure connectivity to Oracle Services Network** wizard. Click on that wizard to begin.
 
     ![](./images/100_11_2.png " ")
 
-2. A configuration page opens up on the right with SDDC workload CIDR details, click Next.
+2. Once again, a configuration page will open up on the right with the SDDC workload CIDR details. Click on **Next**.
 
     ![](./images/100_11_3_0.png " ")
 
-3. Review the resources that will be created within the VCN, a SGW, route table with a route rule for service gateway and a network security group allowing all OCI services in the region. Click **Apply Configuration**, you get a confirmation that the changes have been applied, click **Close**
+3. Review the resources that will be created within the VCN: a SGW, route table with a route rule for service gateway and a network security group allowing all OCI services in the region. Click **Apply Configuration**, you get a confirmation that the changes have been applied, click **Close**
 
 ## STEP 4: Create a Public Subnet to host the Bastion server
 
@@ -141,7 +138,7 @@ We will now create a public subnet in the same VCN, as the SDDC, to host a Basti
 
 We still have to update the route rules for this subnet, but we will do that while we wait for our Bastion host to come up. So, let us go and create the Bastion Host. We will return to this public subnet, in a bit.
 
-## STEP 5: Create a Bastion host to access your SDDC
+## STEP 5: Create a bastion host to access your SDDC
 
 1. Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
 
@@ -178,7 +175,7 @@ We still have to update the route rules for this subnet, but we will do that whi
 
 **Upon the creation of this instance, a user name and an initial password will be generated for you. They will be available on the details screen of the newly launched Instance. You must create a new password upon logging into the instance for the first time.**
 
-## STEP 6: Create an **Internet Gateway**
+## STEP 6: Create an Internet Gateway
 
 Upon creation, the Bastion Server will have to communicate with the internet. For this, the public subnet will need an Internet Gateway.
 
@@ -206,7 +203,7 @@ Upon creation, the Bastion Server will have to communicate with the internet. Fo
 
 You have successfully created an Internet Gateway. Now, let us attach it to the public subnet where your Bastion resides.
     
-## STEP 7: Attach the **Internet Gateway** to the public subnet
+## STEP 7: Attach the Internet Gateway to the public subnet
 
 You will now modify the route rules for the public subnet to direct the traffic through the Internet Gateway that you just created.
 

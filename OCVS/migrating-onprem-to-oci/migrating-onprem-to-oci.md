@@ -7,7 +7,7 @@ In this lab, we will import the on-premises VMWare environment that we had expor
 ## Objectives
 1. Import an OVF file and access the environment as part of the Oracle Cloud VMWare Service.
 
-## Required Artifacts
+## Prerequisites
 1. Access to the Object storage bucket used to store the exported workload from Lab 200.
 2. The deployed OCVS environment from Lab 100.
 

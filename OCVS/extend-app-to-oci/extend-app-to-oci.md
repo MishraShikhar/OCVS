@@ -9,7 +9,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
 2. Provide Network file system capabilities through File Storage Service through a file storage mount point.
 <!-- Enable REST end points for your application data using Oracle Integration Cloud -->
 
-## Required Artifacts
+## Prerequsites
 1. Required IAM permissions to create a File Storage Service instance, a Load Balancer and an Integration Cloud instance.
 
 ## Use Case 1: Set up Load Balancer in front of osCommerce Application
