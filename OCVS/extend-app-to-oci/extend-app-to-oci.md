@@ -135,7 +135,7 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
     9. Change the **Image** to **Ubuntu**.
         ![](./images/400_66.png " ")
 
-    10. As shown in the image above, we need to open the mentioned ports in the private subnet containing the SDDC and also in subnet containing your Linux machine that will be sharing this file system. 
+    10. As shown in the image above, we need to open the mentioned ports in the private subnet containing the SDDC to the subnet containing your Linux machine that will be mounting this file system viz VMWare workload network and the public subnet.
     
         ![](./images/400_57_0.png " ")
 
