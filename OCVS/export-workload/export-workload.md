@@ -1,4 +1,4 @@
-# Exporting the Snapshot of an Application Virtual Machine
+# Exporting On-Premises workload
 
 ## Introduction
 
