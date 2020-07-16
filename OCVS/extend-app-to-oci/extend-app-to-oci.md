@@ -1,4 +1,4 @@
-# Extending your Application deployed in OCVS with OCI Services
+# Generate Export of On-Premises workload
 
 ## Introduction
 
@@ -123,8 +123,6 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
     6. Select the **Create New Mount Point Target** radio button. Give the Mount Point Target a name. Choose the same VCN, as your SDDC and select the **Private Regional** subnet and click on the **Create** button.
 
         ![](./images/400_45.png " ")
-        ![](./images/400_46.png " ")
-        ![](./images/400_48.png " ")
     
     7. You should be able to see a screen, similar to the one below.
 
@@ -141,21 +139,15 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
     
         ![](./images/400_57_0.png " ")
 
-    11. Please note that you might not have to open the egress rules, if you already have traffic open to 0.0.0.0/0 on all ports. As shown previously add the required ingress rules, the source CIDR range is the workload CIDR created for the VMware NSX.
+    11. Please note that you might not have to open the egress rules, if you already have traffic open to 0.0.0.0/0 on all ports. As shown previously add the following ingress rules, the source CIDR range for first set of rules will be the public subnet that you have created.
     
-        ![](./images/400_57.png " ")
-        ![](./images/400_58.png " ")
+        ![](./images/400_57_1.png " ")
+        ![](./images/400_57_2.png " ")
 
-    12. Your subnets will have a long list of rules, all of which have a purpose.
-
-        1. Subnet 1 Rules
-            ![](./images/400_59.png " ")
-            ![](./images/400_60.png " ")
-            ![](./images/400_61.png " ")
-
-        2. Subnet 2 Rules
-            ![](./images/400_62.png " ")
-            ![](./images/400_63.png " ")
+    12. Now add the second set of ingress rules where the source CIDR range is the SDDC workload CIDR created.
+    
+        ![](./images/400_57_3.png " ")
+        ![](./images/400_57_4.png " ")
 
     13. Now, access your SDDC, as shown in Lab 100 and launch your Ubuntu Instance.
 
@@ -181,7 +173,6 @@ In this lab, we will extend the application that we deployed in the VMWare SDDC 
         ls
 
         ![](./images/400_69.png " ")
-        ![](./images/400_70.png " ")
 
     16. Open the file for editing and enter a custom message. 
 
