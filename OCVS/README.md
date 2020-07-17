@@ -41,8 +41,8 @@ These hands-on lab guides provide step-by-step directions to set up and use your
 
 ## Acknowledgements
 
-**Author** - Maharshi Desai, Subramanian Viswanathan, Shikhar Mishra, Raj Hindocha, Srihareendra Bodduluri, Yash Lamba, Praveen Kumar
+**Author** - Maharshi Desai, Subramanian Viswanathan, Shikhar Mishra, Raj Hindocha, Yash Lamba, Srihareendra Bodduluri, Praveen Kumar
 
-**Last Update** - July 15, 2020.
+**Last Update** - July 17, 2020.
 
 **You are all set. Let us begin!**
