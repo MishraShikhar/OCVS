@@ -106,7 +106,7 @@ Since the SDDC is sittng in a private subnet, to allow it to communicate with th
 
 ## STEP 3: Configure connectivity to Oracle Services Network
 
-1. To connect to the Oracle services network we would need a service gateway. We will create one using the **Configure connectivity to Oracle Services Network** wizard. Click on that wizard to begin.
+1. To connect to the Oracle services network we would need a **Service Gateway (SGW)**. We will create one using the **Configure connectivity to Oracle Services Network** wizard. Click on that wizard to begin.
 
     ![](./images/100_11_2.png " ")
 
@@ -114,45 +114,50 @@ Since the SDDC is sittng in a private subnet, to allow it to communicate with th
 
     ![](./images/100_11_3_0.png " ")
 
-3. Review the resources that will be created within the VCN: a SGW, route table with a route rule for service gateway and a network security group allowing all OCI services in the region. Click **Apply Configuration**, you get a confirmation that the changes have been applied, click **Close**
+3. Review the resources that will be created within the VCN: a SGW, a route table with a route rule for service gateway and a network security group that allows access to all OCI services in the region. Click on **Apply Configuration**. You will get a confirmation that the changes have been applied. Now, click on **Close**.
 
 ## STEP 4: Create a Public Subnet to host the Bastion server
 
-We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. Once the SDDC is up and running, we will need this jump server to access the SDDC.
+We will now create a public subnet in the same VCN, as the SDDC, to host a Bastion server. We need this jump server to access the SDDC.
 
-1. From the **Resources** section on the left side of the page, get to VCN and subnets and click on **Create Subnet**.
+1. Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
+Go to **Networking** and select **Virtual Cloud Networks**. Make sure that you are in the correct compartment. If not then you can switch to the correct compartment from the drop down on the left side of the screen. 
     
     ![](./images/100_11_3_01.png " ")
+
     ![](./images/100_11_3_02.png " ")
+
+2. Click on the VCN that hosts your SDDC. From the **Resources** panel on the left, choose subnets and then and click on **Create Subnet**. 
+
     ![](./images/100_11_3_03.png " ")
+
     ![](./images/100_11_3_1.png " ")
 
-2. Give the name as <your-name>-public-subnet and provide a minimum of /30 available CIDR range. Leave all other options as default.
+2. Give the subnet a name for e.g. \<your-name>-public-subnet, and provide a CIDR range with a minimum size of /30. Leave all other options as default.
 
     ![](./images/100_11_3_2.png " ")
 
-3. Click on the **Create Subnet** button. You should now see the public subnet created.
+3. Click on the **Create Subnet** button. You should now be able to see the created public subnet.
 
     ![](./images/100_11_3_3.png " ")
+
     ![](./images/100_11_3_4.png " ")
 
-We still have to update the route rules for this subnet, but we will do that while we wait for our Bastion host to come up. So, let us go and create the Bastion Host. We will return to this public subnet, in a bit.
+We still have to update the route rules for this subnet, but we will do that while we wait for our Bastion host to come up. So, let us go and create the bastion host. We will return to this public subnet, in a bit.
 
 ## STEP 5: Create a bastion host to access your SDDC
 
-1. Open the navigation menu by clicking on the hamburger menu icon on the top left of the screen.
-
-2. Under **Core Infrastructure**, click on **Compute** and then on **Instances**.
+1. Return to the navigation menu and under **Core Infrastructure**, click on **Compute** and then on **Instances**.
 
     ![](./images/100_12.png " ")
 
-3. On the instances page, click on the **Create Instance** button.
+2. On the instances page, click on the **Create Instance** button.
 
     ![](./images/100_13.png " ")
 
     ![](./images/100_14.png " ")
 
-4. On the Create Compute Instance page, provide the following values:- 
+3. On the Create Compute Instance page, provide the following values:- 
     1. **Name**: The name of the virtual machine. 
     2. **Image**: The image/operating system to be used by the virtual machine. We want to use the Windows Server 2016 Standard Image for this machine. 
     
@@ -161,7 +166,8 @@ We still have to update the route rules for this subnet, but we will do that whi
     ![](./images/100_15.png " ")
 
     3. **Availability Domain (AD)** - The AD where the instance will be provisioned. 
-    4. **Shape**: The shape (OCPU / memory) configuraion of the machine. Select a VM.Standard2.1 shape for your compute instance.
+
+    4. **Shape**: The shape (OCPU & memory) configuraion of the machine. Select a VM.Standard2.1 shape for your compute instance.
 
     ![](./images/100_16.png " ")
 
@@ -173,11 +179,11 @@ We still have to update the route rules for this subnet, but we will do that whi
 
 5. Click on the **Create** button. Proceed to Step 6, while we wait for the creation to complete.
 
-**Upon the creation of this instance, a user name and an initial password will be generated for you. They will be available on the details screen of the newly launched Instance. You must create a new password upon logging into the instance for the first time.**
+**Upon the creation of this instance, a user name and an initial password will be generated for you. They will be available on the details screen of the newly launched instance. You must create a new password upon logging into the instance for the first time.**
 
 ## STEP 6: Create an Internet Gateway
 
-Upon creation, the Bastion Server will have to communicate with the internet. For this, the public subnet will need an Internet Gateway.
+Upon creation, the bastion server will have to communicate with the internet. For this, the public subnet will need an **Internet Gateway**.
 
 1. Go to the navigation menu. Under **Core Infrastructure**, choose **Networking** and then **Virtual Cloud Networks**. 
 
@@ -195,17 +201,17 @@ Upon creation, the Bastion Server will have to communicate with the internet. Fo
 
     ![](./images/100_11_7.png " ")
 
-5. Provide a name and compartment for the Internet gateway and hit the **Create Internet Gateway** button on the iframe.
+5. Provide a name and compartment for the Internet gateway and hit the **Create Internet Gateway** button.
     
     ![](./images/100_11_8.png " ")
 
     ![](./images/100_11_9.png " ")
 
-You have successfully created an Internet Gateway. Now, let us attach it to the public subnet where your Bastion resides.
+You have successfully created an Internet Gateway. Now, let us attach it to the public subnet where your bastion resides.
     
 ## STEP 7: Attach the Internet Gateway to the public subnet
 
-You will now modify the route rules for the public subnet to direct the traffic through the Internet Gateway that you just created.
+We will now modify the route rules for the public subnet to direct the traffic through the internet gateway that you just created.
 
 1. From the **Resources** section on the left side of the web page, select **Subnets**.
 
@@ -223,13 +229,13 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
     ![](./images/100_11_12.png " ")
 
-5. Select the **Target Type** as **Internet Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the Internet Gateway that you just created as the Target Internet Gateway. Thereafter, click on **Add Route Rules**. 
+5. Select the **Target Type** as **Internet Gateway**, set the **Destination CIDR** as 0.0.0.0/0 and choose the internet gateway that you just created as the **Target Internet Gateway**. Thereafter, click on **Add Route Rules**. 
 
     ![](./images/100_11_13.png " ")
 
 ## STEP 8: Update security list to allow Remote Desktop connection
 
-1. We will now open port 3389 in the Security List attached to the public subnet. Go back to the previous page and select **Security Lists** from the Resources panel.
+1. We will now open port 3389 in the security list attached to the public subnet. Go back to the previous page and select **Security Lists** from the Resources panel.
 
     ![](./images/100_35.png " ")
 
@@ -251,11 +257,11 @@ You will now modify the route rules for the public subnet to direct the traffic 
 
     ![](./images/100_40.png " ")
 
-The Bastion host is now ready to accept remote desktop connections. 
+The bastion host is now ready to accept remote desktop connections. 
 
 ## STEP 9: Configure Connectivity from VMWare private subnet to our public subnet
 
-1. Navigate back to the SDDC. Click the hamburger icon, and under **Solutions and Platform**, click on **VMware Solution** and select the SDDC that you provisioned.
+1. We will now navigate back to the SDDC. Click on the hamburger icon, and under **Solutions and Platform**, click on **VMware Solution** and select the SDDC that you provisioned.
 
     ![](./images/100_1.png " ")
 
@@ -271,17 +277,17 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/100_40_5.png " ")
 
-5. It gets added to the subnets list. Now click **Next**
+5. It gets added to the list of subnets. Now click **Next**
 
     ![](./images/100_40_4.png " ")
 
-6. Review the resources that will get created withion the VCN and click **Apply Configuration**
+6. Review the resources that will get created within the VCN and click on **Apply Configuration**
 
     ![](./images/100_40_6.png " ")
 
     ![](./images/100_40_7.png " ")
 
-7. You get a confirmation for all the configuration changes that gets applied
+7. You get a confirmation for all the configuration changes that were just applied.
 
     ![](./images/100_40_8.png " ")
 
@@ -298,11 +304,11 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/100_19.png " ")
 
-3. Copy the Public IP address, username and one-time password from the console of the VM. you will need them to establish remote desktop connectivity to the machine.
+3. Copy the public IP address, username and one-time password from the console of the VM. You will need these to establish remote desktop connectivity to the machine.
 
     ![](./images/100_20.png " ")
 
-4. Connect to the instance using a Remote Desktop application of your choosing. The screenshots below show the process from a Mac based client.
+4. Connect to the instance using a Remote Desktop application of your choosing. The screenshots below show the process using a Mac based client.
 
     ![](./images/100_21.png " ")
 
@@ -312,15 +318,15 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/100_24.png " ")
 
-5. When you login the first time, you will be asked to set a password. Reset your password and make a note of it.
+5. When you login for the first time, you will be prompted to set a new password. Reset your password and make a note of it.
 
     ![](./images/100_25.png " ")
 
-6. Now, we will goto the page of our SDDC and we will copy the vSphere Client vCenter URL.
+6. Now, we will go to the page of our SDDC and we will copy the vSphere Client vCenter URL.
 
     ![](./images/100_26.png " ")
 
-7. Within your Windows machine that you have connected to using the RDP clinet, install the chrome browser and paste the **vSphere Client** link.
+7. Install a web browser like Firefox on the Windows machine that you have connected to. Once it is installed, paste the **vSphere Client** link and hit enter.
 
     ![](./images/100_27.png " ")
 
@@ -334,16 +340,16 @@ The Bastion host is now ready to accept remote desktop connections.
 
     ![](./images/100_30.png " ")
 
-10. Here you will need to enter the credential available on the SDDC's OCI console page. Go to the SDDC's console page and copy the **vCenter Username** and **vCenter Initial Password**.
+10. Here you will need to enter the credentials available on the SDDC's OCI console page. Go to the SDDC's console page and copy the **vCenter Username** and **vCenter Initial Password**.
 
     ![](./images/100_31.png " ")
 
-**Note**: You will also get the NSX login information here.
+**Note**: You will also find the NSX login information here.
 
 11. You should now be able to access the vCenter. From here you can manage the VMware environment.
 
     ![](./images/100_33.png " ")
 
-12. If you look at the panel on the left, you should be able to see the backend hosts that we used to provision our environment.
+12. If you look at the panel on the left, you should be able to see the backend hosts used for the environment.
 
     ![](./images/100_34.png " ")

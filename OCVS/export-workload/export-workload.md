@@ -2,17 +2,17 @@
 
 ## Introduction
 
-In this lab, we will export the on-premises workload into a format that can be imported into OCVS. For this, we will simulate an on-premise environment using VMWare Workstation. The VMWare Workstation can be easily installed on a laptop or another virtual machine. After that, we will configure an e-Commerce application on the infrastructure and export the workload in the form of a .ovf file and upload it to a bucket in Object Storage. This .ovf file be downloaded and imported into OCVS in the next lab. 
+In this lab, we will export the on-premises workload into a format that can be imported into OCVS. For this, we will simulate an on-premise environment using VMWare Workstation. The VMWare Workstation can be easily installed on a laptop or another virtual machine. After that, we will configure an e-Commerce application on the infrastructure and export the workload in the form of an ovf file and upload it to a bucket in object storage. This .ovf file be downloaded and imported into OCVS in the next lab. 
 
 **This lab is optional. Should you wish to skip this part, please download the zipped VMDK files contained [here](https://objectstorage.us-ashburn-1.oraclecloud.com/p/H3bRU5d3eP76yjLry558pwp9tmpcbLxbNdyxWo_VRWI/n/orasenatdpltintegration02/b/OCVSDemo/o/oscommerce.zip).**
 
 ## Objectives
-1. Export a VM as a .ovf file from on-premises VMWare infrastructure.
-2. Create an object storage bucket and upload the OVF file 
+1. Export a VM as an ovf file from on-premises VMWare infrastructure.
+2. Create an object storage bucket and upload the ovf file. 
 
 ## Prerequisites
 1. [VMWare Workstation](https://www.vmware.com/go/getworkstation-win) on a Windows Laptop or [VMWare Fusion Pro](https://www.vmware.com/products/fusion/fusion-evaluation.html) for Mac
-2. An Object Storage bucket with the required IAM privileges.
+2. An object storage bucket with the required IAM privileges.
 
 ## Additional Resources
 To learn more about the some of terms that we will be using, please follow the relevant links.
@@ -21,9 +21,9 @@ To learn more about the some of terms that we will be using, please follow the r
 
 ## STEP 1: Download VMware Workstation and Import Ubuntu Instance
 
-This section outlines the installation of VMWare workstation and how to configure an e-Commerce application. 
+This section outlines the installation of VMWare workstation and how to configure an e-commerce application. 
 
-1. Download and Install the latest VMWare for your platform ([Windows](https://www.vmware.com/go/getworkstation-win), [Mac OS](https://www.vmware.com/products/fusion/fusion-evaluation.html))
+1. Download and install the latest VMWare for your platform ([Windows](https://www.vmware.com/go/getworkstation-win), [Mac OS](https://www.vmware.com/products/fusion/fusion-evaluation.html))
 
 **Note**: Mac users need to download the Pro version from the page.
 
@@ -31,19 +31,19 @@ This section outlines the installation of VMWare workstation and how to configur
 
 2. Download the [Ubuntu.ovf](https://objectstorage.us-ashburn-1.oraclecloud.com/p/sOmBe0So96uG2zYVIjywBSXp_wSgfolSvYj3_0JJF8M/n/orasenatdhubsred01/b/oscommerce-workshop/o/ubuntu.zip) file. 
 
-3. Open VMware Workstation and click on **File** and then **Open**. Select the **ubuntu.ovf** file that you downloaded, earlier.
+3. Open VMware Workstation and click on **File** and then **Open**. Select the **ubuntu.ovf** file that you downloaded in the previous instruction.
 
     ![](./images/200_1.png " ")
 
-4. Provide a name for the virtual machine. We will be using the name **oscommerce** going forward. Also, specify a path for the VM. After that, click on **Import**.
+4. Provide a name for the virtual machine. We will be using the name **oscommerce** going forward. Also, specify a path for the VM. Thereafter, click on **Import**.
 
     ![](./images/200_2.png " ")
 
-5. The VMware Workstation will read the settings from the ovf file, automatically and will take you to the settings for the VM. You should be able to see the following settings: 
+5. The VMware Workstation will automatically read the settings from the ovf file and will take you to the settings for the VM. You should be able to see the following settings: 
 
     ![](./images/200_3.png " ")
 
-6. Once complete, you will see the osCommerceDemo VM listed. Hit the **Green Start Arrow** to boot up the VM. 
+6. Once complete, you will see the oscommercedemo VM listed. Hit the **Green Start Arrow** to boot up the VM. 
 
     ![](./images/200_4.png " ")
 
@@ -51,7 +51,7 @@ This section outlines the installation of VMWare workstation and how to configur
 
     ![](./images/200_5.png " ")
 
-We we will now use this virtual machine to host the osCommerce application.
+We we will now use this virtual machine to host the oscommerce application.
  
 ## STEP 2: Install and Setup LAMP (Linux, Apache, MySQL, PHP) & SSH
 
@@ -65,7 +65,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
     2. You will be prompted to provide a password for the MySQL **root** user. This password would be valid for the user, root@localhost, as well as, root@server1.example.com. Hence, we would not be required to manually specify a MySQL root password, later on. 
     
-    **NOTE**: Write this password down in a secure location. You will need it for multiple times, going forward.
+    **NOTE**: Write this password down in a secure location. You will need it on multiple occasions, going forward.
 
     3. Run the following command to complete the installation:
 
@@ -97,7 +97,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
 3. Install PHP7
 
-    1. Install PHP7 and Apache PHP7 modules with the command, below:
+    1. Install PHP7 and Apache PHP7 modules with the command given below:
 
         sudo apt-get install php libapache2-mod-php php-mysql.
 
@@ -109,7 +109,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
         sudo service apache2 restart
 
-4. Configure osCommerce Database and User
+4. Configure oscommerce database and user
 
     1. Log into the database as an administrator using the terminal within the VMware Workstation environment:
 
@@ -133,7 +133,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
     5. Exit mysql with command exit;
 
-5. Configure Ubuntu to accept SSH Connections
+5. Configure Ubuntu to accept SSH connections
 
     1. Setup SSH:
 
@@ -145,7 +145,7 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
         sudo apt-get install iptables-persistent
 
-    3. Allow SSH Connections:
+    3. Allow SSH connections:
 
         sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
@@ -173,11 +173,11 @@ Before we begin, please verify that internet is working on the oscommerce VM. We
 
         unzip oscommerce-2.3.4.1.zip
 
-2. Run the commands below to copy osCommerce content to the default root directory for Apache2. You can choose to customize Apache2 root directory, but for this lab, we will be using the default location which is **/var/www/html**
+2. Run the commands below to copy oscommerce content to the default root directory for Apache2. You can choose to customize Apache2 root directory, but for this lab, we will be using the default location which is **/var/www/html**
 
         sudo cp -rf oscommerce-2.3.4.1/* /var/www/html/
 
-3. Change permissions on the files and give apache2 ownership of the root directory. Restart Apache:
+3. Change permissions on the files and give apache2 the ownership of the root directory. Restart Apache:
 
         sudo chmod 777 /var/www/html/catalog/includes/configure.php
     
@@ -197,7 +197,7 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 
     ![](./images/200_9.png " ")
 
-6. Finally, set the OSCommerce online store settings info. We recommend that you make a note of the administrator username and password for later reference.
+6. Finally, set the oscommerce online store settings info. We recommend that you make a note of the administrator username and password for later reference.
 
     ![](./images/200_10.png " ")
 
@@ -211,17 +211,17 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 
 ## STEP 4: Configure osCommerce for End User
 
-1. Type **localhost/catalog/admin** in the address bar of the browser. You will need to log in with the admin username and password that you entered while setting up your osCommerce Online Store. 
+1. Type **localhost/catalog/admin** in the address bar of the browser. You will need to log in with the admin username and password that you entered while setting up your oscommerce Online Store. 
 
     ![](./images/200_11.png " ")
   
-2. Create a New Manufacturer, Category & Product
+2. Create a new manufacturer, category & product
 
-    1. Click on **Catalog** in the menu on the left of the page and click on **Manufacturers**. On the next page, click on **Insert** and proceed to enter **Oracle** as the name of the manufacturer. Also, search for Oracle's pretty logo and download it to your machine. You will upload it to be used as the icon for the manufacturer. Once you do so, click **save** to  complete the listing. 
+    1. Click on **Catalog** in the menu on the left of the page, and click on **Manufacturers**. On the next page, click on **Insert** and enter **Oracle** as the name of the manufacturer. Also, search for Oracle's pretty logo and download it to your machine. You will upload it to be used as the icon for the manufacturer. Once you do so, click **save** to  complete the listing. 
 
         ![](./images/200_12.png " ")
 
-    2. Go to **Categories/Products**, **Hardware** and then click on **New Category**. Name the category **Oracle Hardware**. Upload the same image of the Oracle logo or some other image and click **save**.
+    2. Go to **Categories/Products**, **Hardware** and then click on **New Category**. Name the category **Oracle Hardware**. Upload the image of the Oracle logo or some other image and click **save**.
     
         ![](./images/200_13.png " ")
 
@@ -235,16 +235,17 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
 
 ## STEP 5: Export OVF File from VMWare Workstation to Object Storage
 
-1. From VMware Workstation, shut down the osCommerce     virtual machine (quitting will also have the same result). Export the appliance from VMware Workstation. Set the file location for the .ovf export. Export should take about 5 minutes. While the export is in progress, let us proceed to the next steps.
+1. Using the VMware Workstation, shut down the osCommerce virtual machine (quitting will also have the same result). Export the appliance from VMware Workstation. Set the file location for the .ovf export. The export should take about 5 minutes. While the export is in progress, let us proceed to the next steps.
     
     ![](./images/200_16.png " ")
+
     ![](./images/200_17.png " ")
 
 2. Login to your Oracle Cloud tenancy. Click on the hamburger menu in the top left to open the navigation bar. Under **Core Infrastructure**, select **Object Storage**. 
 
     ![](./images/200_18.png " ")
 
-3. Choose the appropriate compartment from the drop down on the left side of the console.
+3. Choose the appropriate compartment from the drop down on the left side of the page.
 
     ![](./images/200_19.png " ")
 
@@ -274,20 +275,24 @@ Open firefox and navigate to localhost/catalog. You should see the setup wizard;
     
     ![](./images/200_24.png " ")
 
-9. Create a zip file containing the 3 OVF files and upload the zipped file to the bucket that you just created.
+9. Create a zip file containing the 3 ovf files and upload the zipped file to the bucket that you just created.
 
     ![](./images/200_26.png " ")
 
-10. Select the bucket you created and then click the blue button within Objects named **Upload Objects**. 
+10. Select the bucket you created and then click on the blue **Upload** button.
 
     ![](./images/200_25.png " ")
 
-    ![](./images/200_27.png " ")
+    ![](./images/200_30.png " ")
 
-11. Click **Select Files** and then locate the zipped ovf file.
+11. Click **Select Files** and then locate the zipped ovf file. Then, click on the **Upload** button.
 
     ![](./images/200_28.png " ")
 
-The OVF file has been successfully exported and uploaded to the object storage. Click the three dots next to the .zip file and select **Create Pre-Authenticated Request**. Leave the default selections and click **Create Pre-Authenticated Request**. Copy the pre-authenticated request URL. This will be used later,  when creating the custom image.
+12. The ovf file has been successfully exported and uploaded to the object storage. Click the three dots to the right of the zip file and select **Create Pre-Authenticated Request**. 
 
-![](./images/200_29.png " ")
+    ![](./images/200_31.png " ")
+
+13. Leave the default selections and click on **Create Pre-Authenticated Request**. A URL will be generated. Copy the pre-authenticated request URL. This will be used later, when creating the custom image.
+
+    ![](./images/200_32.png " ")
