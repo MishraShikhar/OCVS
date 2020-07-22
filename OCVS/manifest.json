@@ -16,7 +16,7 @@
         "filename": "export-workload/export-workload.md"
       },
       {
-        "title": "Lab 3: Migrate On-Premises workload to OCVS",
+        "title": "Lab 3: Migrate On-Premises Workload to OCVS",
         "description": "Migrate on-premises workload to OCVS",
         "filename": "migrating-onprem-to-oci/migrating-onprem-to-oci.md"
       },
